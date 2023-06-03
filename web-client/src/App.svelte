@@ -1,5 +1,5 @@
 <script>
-    import {Router, Route} from "svelte-routing";
+    import {Route, Router} from "svelte-routing";
     import Header from "./lib/Header.svelte";
     import Footer from "./lib/Footer.svelte";
     import Catalog from "./lib/Catalog.svelte";
@@ -7,6 +7,7 @@
     import {ProductApi} from "./api/ProductApi.js";
     import {onMount} from "svelte";
     import {products} from "./store/products.js";
+    import ProductPage from "./lib/ProductPage.svelte";
 
     let url = "/";
     let api = new ProductApi();
@@ -14,13 +15,16 @@
     onMount(() => {
         api.getAllProducts()
             .then(data => products.set(data))
-            .catch( errorMsg => console.log(`Something wrong ${errorMsg}`))
+            .catch(errorMsg => console.log(`Something wrong ${errorMsg}`))
     });
 </script>
 
 <Router {url}>
     <Header/>
     <Route path="/login" component={LoginPage}/>
-    <Route path="/"  component={Catalog}/>
+    <Route path="/" component={Catalog}/>
+    <Route path="/products/:id" let:params>
+        <ProductPage id={params.id}/>
+    </Route>
     <Footer/>
 </Router>

@@ -1,12 +1,17 @@
 <script>
     import missingProductImage from "../assets/missingProductImage.png"
+    import {navigate} from "svelte-routing";
 
+    export let id;
     export let name;
     export let price;
     export let imageUrl = missingProductImage;
+    let handleClick = () => {
+        navigate(`/products/${id}`)
+    }
 </script>
 
-<article>
+<article on:click={handleClick}>
     <img src={imageUrl} alt="product image"/>
     <div>
         <p>{name}</p>
