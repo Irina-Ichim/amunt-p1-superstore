@@ -1,19 +1,8 @@
 <script>
-    import {onMount} from "svelte";
-    import SongsApi from "./api/songsApi.js";
-    import logo from "./assets/logo."
-
-    let songs = [];
-    let api = new SongsApi();
-    let errorMsg;
-
-    onMount(() => {
-        api.getSongs()
-            .then(data => songs = data)
-            .catch(error => errorMsg = error)
-    });
+    import Header from "./lib/Header.svelte";
+    import Footer from "./lib/Footer.svelte";
 </script>
 
-<header>
-    <img src={logo}/>
-</header>
+<Header />
+
+<Footer />
