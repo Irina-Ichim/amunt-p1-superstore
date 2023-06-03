@@ -1,7 +1,7 @@
 <script>
     import Logo from "./Logo.svelte";
     import {links} from "svelte-routing"
-    import {loggedIn} from "../../store/session.js";
+    import {loggedIn} from "../store/session.js";
 
     let showLoginButton;
 

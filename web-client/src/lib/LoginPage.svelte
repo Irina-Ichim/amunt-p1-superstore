@@ -1,6 +1,6 @@
 <script>
     import {navigate} from "svelte-routing";
-    import {loggedIn} from "../../store/session.js";
+    import {loggedIn} from "../store/session.js";
 
     let username;
     let password;

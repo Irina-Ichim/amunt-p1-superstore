@@ -1,20 +1,14 @@
 <script>
-    import {ProductApi} from "../api/ProductApi.js";
-    import {onMount} from "svelte";
     import ProductCard from "./ProductCard.svelte";
+    import {products} from "../store/products.js";
 
-    let products = [];
-    let api = new ProductApi();
+    let productList = [];
+    products.subscribe(value => productList = value);
 
-    onMount(() => {
-        api.getAllProducts()
-            .then(data => products = data)
-            .catch( errorMsg => console.log(`Something wrong ${errorMsg}`))
-    });
 </script>
 
 <section>
-    {#each products as data}
+    {#each productList as data}
         <ProductCard {...data}/>
     {/each}
 </section>
