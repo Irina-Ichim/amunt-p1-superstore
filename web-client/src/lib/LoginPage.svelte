@@ -1,12 +1,18 @@
 <script>
     import {navigate} from "svelte-routing";
     import {loggedIn} from "../store/session.js";
+    import {AuthApi} from "../api/AuthApi.js";
 
     let username;
     let password;
+    let loginError;
+
+    let api = new AuthApi();
     let onSubmit = () => {
-        loggedIn.set(true);
-        navigate("/");
+        api.login(username, password)
+            .then(() => {
+                navigate("/");
+            })
     };
 </script>
 
@@ -16,6 +22,9 @@
     <label for="password">Password</label>
     <input bind:value={password} type="password" id="password">
     <input type="submit" value="Login">
+    {#if loginError}
+        <span>Usuario Incorrecto</span>
+    {/if}
 </form>
 
 <style>
@@ -35,6 +44,12 @@
     input[type="submit"] {
         max-width: 200px;
         height: 30px;
+    }
+
+    span {
+        background-color: lightcoral;
+        color: red;
+        padding: 10px;
     }
 
 </style>

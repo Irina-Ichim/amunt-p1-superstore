@@ -1,8 +1,5 @@
 import fakeData from "../assets/fakeData.json";
-
-// when in development mode, this takes data from
-// https://dummyjson.com/products
-let developmentModeOn = process.env.NODE_ENV === "development";
+import {developmentModeOn} from "./developmentMode.js";
 
 function fakeFetch() {
     console.log("Fetching fake data!");
