@@ -1,0 +1,152 @@
+[
+  {
+    "name": "iPhone 9",
+    "price": 549,
+    "imageUrl": "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+  },
+  {
+    "name": "iPhone X",
+    "price": 899,
+    "imageUrl": "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+  },
+  {
+    "name": "Samsung Universe 9",
+    "price": 1249,
+    "imageUrl": "https://i.dummyjson.com/data/products/3/thumbnail.jpg"
+  },
+  {
+    "name": "OPPOF19",
+    "price": 280,
+    "imageUrl": "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+  },
+  {
+    "name": "Huawei P30",
+    "price": 499,
+    "imageUrl": "https://i.dummyjson.com/data/products/5/thumbnail.jpg"
+  },
+  {
+    "name": "MacBook Pro",
+    "price": 1749,
+    "imageUrl": "https://i.dummyjson.com/data/products/6/thumbnail.png"
+  },
+  {
+    "name": "Samsung Galaxy Book",
+    "price": 1499,
+    "imageUrl": "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+  },
+  {
+    "name": "Microsoft Surface Laptop 4",
+    "price": 1499,
+    "imageUrl": "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+  },
+  {
+    "name": "Infinix INBOOK",
+    "price": 1099,
+    "imageUrl": "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+  },
+  {
+    "name": "HP Pavilion 15-DK1056WM",
+    "price": 1099,
+    "imageUrl": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+  },
+  {
+    "name": "perfume Oil",
+    "price": 13,
+    "imageUrl": "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
+  },
+  {
+    "name": "Brown Perfume",
+    "price": 40,
+    "imageUrl": "https://i.dummyjson.com/data/products/12/thumbnail.jpg"
+  },
+  {
+    "name": "Fog Scent Xpressio Perfume",
+    "price": 13,
+    "imageUrl": "https://i.dummyjson.com/data/products/13/thumbnail.webp"
+  },
+  {
+    "name": "Non-Alcoholic Concentrated Perfume Oil",
+    "price": 120,
+    "imageUrl": "https://i.dummyjson.com/data/products/14/thumbnail.jpg"
+  },
+  {
+    "name": "Eau De Perfume Spray",
+    "price": 30,
+    "imageUrl": "https://i.dummyjson.com/data/products/15/thumbnail.jpg"
+  },
+  {
+    "name": "Hyaluronic Acid Serum",
+    "price": 19,
+    "imageUrl": "https://i.dummyjson.com/data/products/16/thumbnail.jpg"
+  },
+  {
+    "name": "Tree Oil 30ml",
+    "price": 12,
+    "imageUrl": "https://i.dummyjson.com/data/products/17/thumbnail.jpg"
+  },
+  {
+    "name": "Oil Free Moisturizer 100ml",
+    "price": 40,
+    "imageUrl": "https://i.dummyjson.com/data/products/18/thumbnail.jpg"
+  },
+  {
+    "name": "Skin Beauty Serum.",
+    "price": 46,
+    "imageUrl": "https://i.dummyjson.com/data/products/19/thumbnail.jpg"
+  },
+  {
+    "name": "Freckle Treatment Cream- 15gm",
+    "price": 70,
+    "imageUrl": "https://i.dummyjson.com/data/products/20/thumbnail.jpg"
+  },
+  {
+    "name": "- Daal Masoor 500 grams",
+    "price": 20,
+    "imageUrl": "https://i.dummyjson.com/data/products/21/thumbnail.png"
+  },
+  {
+    "name": "Elbow Macaroni - 400 gm",
+    "price": 14,
+    "imageUrl": "https://i.dummyjson.com/data/products/22/thumbnail.jpg"
+  },
+  {
+    "name": "Orange Essence Food Flavou",
+    "price": 14,
+    "imageUrl": "https://i.dummyjson.com/data/products/23/thumbnail.jpg"
+  },
+  {
+    "name": "cereals muesli fruit nuts",
+    "price": 46,
+    "imageUrl": "https://i.dummyjson.com/data/products/24/thumbnail.jpg"
+  },
+  {
+    "name": "Gulab Powder 50 Gram",
+    "price": 70,
+    "imageUrl": "https://i.dummyjson.com/data/products/25/thumbnail.jpg"
+  },
+  {
+    "name": "Plant Hanger For Home",
+    "price": 41,
+    "imageUrl": "https://i.dummyjson.com/data/products/26/thumbnail.jpg"
+  },
+  {
+    "name": "Flying Wooden Bird",
+    "price": 51,
+    "imageUrl": "https://i.dummyjson.com/data/products/27/thumbnail.webp"
+  },
+  {
+    "name": "3D Embellishment Art Lamp",
+    "price": 20,
+    "imageUrl": "https://i.dummyjson.com/data/products/28/thumbnail.jpg"
+  },
+  {
+    "name": "Handcraft Chinese style",
+    "price": 60,
+    "imageUrl": "https://i.dummyjson.com/data/products/29/thumbnail.webp"
+  },
+  {
+    "name": "Key Holder",
+    "price": 30,
+    "imageUrl": "https://i.dummyjson.com/data/products/30/thumbnail.jpg"
+  }
+]

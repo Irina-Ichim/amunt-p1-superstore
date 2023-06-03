@@ -54,6 +54,7 @@
 
     hr {
         border-top: 1px solid gray;
+        width: 90%;
     }
 
     section {
