@@ -22,8 +22,10 @@
 <style>
     section {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
         padding: 50px;
         gap: 50px;
+        background-color: #e3e6e6;
     }
 </style>

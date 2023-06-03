@@ -19,10 +19,11 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: lightgray;
+        background-color: white;
         width: 250px;
         height: 300px;
         border-radius: 5px;
+        cursor: pointer;
     }
 
     img {

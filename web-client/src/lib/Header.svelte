@@ -1,10 +1,9 @@
 <script>
-import logo from "../assets/logo.png";
 import Logo from "./Logo.svelte";
 </script>
 
 <header>
-    <Logo />
+    <a href="/"><Logo /></a>
     <nav>
         <span>Ofertas</span>
         <span>Catálogo</span>
