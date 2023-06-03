@@ -1,13 +1,28 @@
 <script>
-import Logo from "./Logo.svelte";
+    import Logo from "./Logo.svelte";
+    import {links} from "svelte-routing"
+    import {loggedIn} from "../../store/session.js";
+
+    let showLoginButton;
+
+    loggedIn.subscribe((value) => {
+        showLoginButton = !value;
+    })
+
 </script>
 
-<header>
-    <a href="/"><Logo /></a>
+<header use:links>
+    <a href="/">
+        <Logo/>
+    </a>
     <nav>
-        <span>Ofertas</span>
-        <span>Catálogo</span>
-        <span>Carrito</span>
+        <a href="/">Ofertas</a>
+        <a href="/">Catálogo</a>
+        {#if showLoginButton}
+            <a href="/login">Login</a>
+        {:else}
+            <a href="/">Mi cuenta</a>
+        {/if}
     </nav>
 </header>
 
@@ -21,9 +36,11 @@ import Logo from "./Logo.svelte";
         padding: 20px;
     }
 
-    span {
+    a {
+        text-decoration: none;
         padding: 0 10px;
         cursor: pointer;
+        color: black;
     }
 
     span:hover {

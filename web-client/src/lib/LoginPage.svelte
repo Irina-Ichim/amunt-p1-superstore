@@ -1,0 +1,40 @@
+<script>
+    import {navigate} from "svelte-routing";
+    import {loggedIn} from "../../store/session.js";
+
+    let username;
+    let password;
+    let onSubmit = () => {
+        loggedIn.set(true);
+        navigate("/");
+    };
+</script>
+
+<form on:submit|preventDefault={onSubmit}>
+    <label for="username">User</label>
+    <input bind:value={username} type="text" id="username">
+    <label for="password">Password</label>
+    <input bind:value={password} type="password" id="password">
+    <input type="submit" value="Login">
+</form>
+
+<style>
+    form {
+        max-width: 500px;
+        margin: 40px auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    input {
+        max-width: 400px;
+        height: 30px;
+        margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+        max-width: 200px;
+        height: 30px;
+    }
+
+</style>

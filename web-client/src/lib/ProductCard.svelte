@@ -24,6 +24,13 @@
         height: 300px;
         border-radius: 5px;
         cursor: pointer;
+        -webkit-box-shadow: -1px 1px 5px 0px #727171;
+        -moz-box-shadow: -1px 1px 5px 0px #727171FF;
+        box-shadow: -1px 1px 5px 0px #727171FF;
+    }
+
+    article:hover {
+        transform: translate(2px, 2px);
     }
 
     img {
