@@ -1,0 +1,52 @@
+{
+  "id": 9876,
+  "products": [
+    {
+      "id": 27,
+      "name": "Flying Wooden Bird",
+      "description": "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
+      "price": 51,
+      "discountPercentage": 15.58,
+      "rating": 4.41,
+      "stock": 17,
+      "brand": "Flying Wooden",
+      "category": "home-decoration",
+      "imageUrl": "https://i.dummyjson.com/data/products/27/thumbnail.webp",
+      "images": [
+        "https://i.dummyjson.com/data/products/27/1.jpg",
+        "https://i.dummyjson.com/data/products/27/2.jpg",
+        "https://i.dummyjson.com/data/products/27/3.jpg",
+        "https://i.dummyjson.com/data/products/27/4.jpg",
+        "https://i.dummyjson.com/data/products/27/thumbnail.webp"
+      ]
+    },
+    {
+      "id": 28,
+      "name": "3D Embellishment Art Lamp",
+      "description": "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
+      "price": 20,
+      "discountPercentage": 16.49,
+      "rating": 4.82,
+      "stock": 54,
+      "brand": "LED Lights",
+      "category": "home-decoration",
+      "imageUrl": "https://i.dummyjson.com/data/products/28/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/28/1.jpg",
+        "https://i.dummyjson.com/data/products/28/2.jpg",
+        "https://i.dummyjson.com/data/products/28/3.png",
+        "https://i.dummyjson.com/data/products/28/4.jpg",
+        "https://i.dummyjson.com/data/products/28/thumbnail.jpg"
+      ]
+    }
+  ],
+  "status": "pending",
+  "shippingData": {
+    "firstName":  "Pepe",
+    "lastName":  "López García",
+    "nif":  "98761423R",
+    "address":  "Calle de Santa Pola 13, 1-2",
+    "postalCode":  "21453"
+  },
+  "totalCost": 71.00
+}

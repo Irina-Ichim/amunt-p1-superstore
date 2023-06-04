@@ -1,7 +1,12 @@
 import {developmentModeOn} from "./developmentMode.js";
+import fakeData from "../assets/fakeOrder.json"
 
 function fakeCreateOrder() {
-    return Promise.resolve({ id: 7234});
+    return Promise.resolve(fakeData);
+}
+
+function fakeGetOrders() {
+    return Promise.resolve([fakeData]);
 }
 
 class OrderApi {
@@ -12,6 +17,16 @@ class OrderApi {
                 body: JSON.stringify(order)
             })
             .then(response => {
+                if (!response.ok) {
+                    throw new Error("Unable to create order!")
+                }
+                return response.json();
+            })
+    }
+
+    getOrders() {
+        return developmentModeOn? fakeGetOrders() : fetch("/api/orders")
+            .then(response =>{
                 if (!response.ok) {
                     throw new Error("Unable to create order!")
                 }

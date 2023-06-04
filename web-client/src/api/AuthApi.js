@@ -1,8 +1,14 @@
-import {loggedIn} from "../store/session.js";
+import {currentUser, loggedIn} from "../store/session.js";
 import {developmentModeOn} from "./developmentMode.js";
 
 function logInUser() {
     loggedIn.update(_ => true);
+    currentUser.update(_ => {
+        return {
+            name: "Pepiño"
+        }
+    })
+
 }
 
 function fakeLogin() {

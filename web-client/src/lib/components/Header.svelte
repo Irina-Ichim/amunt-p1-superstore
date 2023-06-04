@@ -18,7 +18,7 @@
         {#if !$loggedIn}
             <a href="/login">Login</a>
         {:else}
-            <a href="/">Mi cuenta</a>
+            <a href="/my-account">Mi cuenta</a>
         {/if}
         <a href="/cart">Carrito({$cartSize})</a>
     </nav>

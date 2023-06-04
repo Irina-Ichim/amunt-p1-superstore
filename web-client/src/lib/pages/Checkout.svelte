@@ -2,11 +2,11 @@
     import OrderApi from "../../api/OrderApi.js";
     import {navigate} from "svelte-routing";
 
-    let postalCode;
     let firstName;
     let lastName;
     let nif;
     let address;
+    let postalCode;
 
     let handleSubmit = () => {
         const api = new OrderApi();

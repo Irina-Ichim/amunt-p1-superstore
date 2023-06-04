@@ -1,4 +1,4 @@
-import fakeData from "../assets/fakeData.json";
+import fakeData from "../assets/fakeProducts.json";
 import {developmentModeOn} from "./developmentMode.js";
 
 function fakeFetch() {
