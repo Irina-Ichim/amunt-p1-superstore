@@ -2,18 +2,7 @@
     import Logo from "./Logo.svelte";
     import {links} from "svelte-routing"
     import {loggedIn} from "../store/session.js";
-    import {cart, cartSize} from "../store/cart.js";
-
-    let showLoginButton;
-    let cartSizeNumber = 0;
-
-    cartSize.subscribe(value => {
-        cartSizeNumber = value;
-    })
-
-    loggedIn.subscribe((value) => {
-        showLoginButton = !value;
-    })
+    import {cartSize} from "../store/cart.js";
 </script>
 
 <header use:links>
@@ -23,12 +12,12 @@
     <nav>
         <a href="/">Ofertas</a>
         <a href="/">Catálogo</a>
-        {#if showLoginButton}
+        {#if !$loggedIn}
             <a href="/login">Login</a>
         {:else}
             <a href="/">Mi cuenta</a>
         {/if}
-        <a href="/cart">Carrito({cartSizeNumber})</a>
+        <a href="/cart">Carrito({$cartSize})</a>
     </nav>
 </header>
 
