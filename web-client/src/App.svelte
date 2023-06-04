@@ -8,13 +8,14 @@
     import {onMount} from "svelte";
     import {products} from "./store/products.js";
     import ProductPage from "./lib/ProductPage.svelte";
+    import Cart from "./lib/Cart.svelte";
 
     let url = "/";
     let api = new ProductApi();
 
     onMount(() => {
         api.getAllProducts()
-            .then(data => products.set(data))
+            .then(data => products.update(_ => data))
             .catch(errorMsg => console.log(`Something wrong ${errorMsg}`))
     });
 </script>
@@ -25,6 +26,9 @@
     <Route path="/" component={Catalog}/>
     <Route path="/products/:id" let:params>
         <ProductPage id={params.id}/>
+    </Route>
+    <Route path="/cart">
+        <Cart/>
     </Route>
     <Footer/>
 </Router>

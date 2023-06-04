@@ -2,13 +2,18 @@
     import Logo from "./Logo.svelte";
     import {links} from "svelte-routing"
     import {loggedIn} from "../store/session.js";
+    import {cart, cartSize} from "../store/cart.js";
 
     let showLoginButton;
+    let cartSizeNumber = 0;
+
+    cartSize.subscribe(value => {
+        cartSizeNumber = value;
+    })
 
     loggedIn.subscribe((value) => {
         showLoginButton = !value;
     })
-
 </script>
 
 <header use:links>
@@ -23,6 +28,7 @@
         {:else}
             <a href="/">Mi cuenta</a>
         {/if}
+        <a href="/cart">Carrito({cartSizeNumber})</a>
     </nav>
 </header>
 
@@ -43,8 +49,7 @@
         color: black;
     }
 
-    span:hover {
+    a:hover {
         font-weight: bold;
     }
-
 </style>

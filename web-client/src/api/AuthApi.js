@@ -2,7 +2,7 @@ import {loggedIn} from "../store/session.js";
 import {developmentModeOn} from "./developmentMode.js";
 
 function logInUser() {
-    loggedIn.set(true);
+    loggedIn.update(_ => true);
 }
 
 function fakeLogin() {

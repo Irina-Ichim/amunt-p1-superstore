@@ -2,6 +2,7 @@
     import {products} from "../store/products.js";
     import Button from "./Button.svelte";
     import {navigate} from "svelte-routing";
+    import {cart} from "../store/cart.js";
 
     export let id;
     let productInfo;
@@ -11,17 +12,20 @@
     })
 
     let goBack = () => navigate("/");
+    let addProductToCart = () => {
+        $cart = [...$cart, productInfo];
+        navigate("/");
+    };
 </script>
 
 <article>
-    <img src={productInfo.imageUrl} alt="product image">
+    <img src={productInfo.imageUrl} alt={productInfo.description}>
     <section>
         <h1>{productInfo.name}</h1>
         <h2>{productInfo.price}€</h2>
         <p>{productInfo.description}</p>
-        <Button orange>Añadir a la cesta</Button>
+        <Button on:click={addProductToCart} orange>Añadir a la cesta</Button>
         <Button on:click={goBack}>Volver al catálogo</Button>
-
     </section>
 </article>
 
