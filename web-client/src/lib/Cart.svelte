@@ -1,5 +1,7 @@
 <script>
     import {cart, cartSize, cartTotalCost} from "../store/cart.js";
+    import Button from "./Button.svelte";
+    import {navigate} from "svelte-routing";
 </script>
 
 <table>
@@ -26,3 +28,6 @@
     </tr>
     </tbody>
 </table>
+<Button orange on:click={() =>  navigate("/login", {state: {redirectTo: "/checkout"}})}>Pagar</Button>
+<Button on:click={() =>  navigate("/")}>Seguir comprando
+</Button>

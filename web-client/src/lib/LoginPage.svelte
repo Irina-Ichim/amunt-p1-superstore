@@ -1,7 +1,9 @@
 <script>
-    import {navigate} from "svelte-routing";
-    import {loggedIn} from "../store/session.js";
+    import {navigate, useLocation} from "svelte-routing";
     import {AuthApi} from "../api/AuthApi.js";
+
+    const location = useLocation();
+    $: redirectPathOnSuccess = $location.state.redirectTo || "/";
 
     let username;
     let password;
@@ -11,7 +13,7 @@
     let onSubmit = () => {
         api.login(username, password)
             .then(() => {
-                navigate("/");
+                navigate(redirectPathOnSuccess);
             })
     };
 </script>
