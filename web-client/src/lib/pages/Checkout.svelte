@@ -11,7 +11,7 @@
     let handleSubmit = () => {
         const api = new OrderApi();
         api.createOrder({firstName,lastName,nif,address,postalCode})
-            .then((id) => navigate("/", {state: {message: `Pedido #${id} realizado con éxito`}}))
+            .then(({id}) => navigate("/", {state: {message: `Pedido #${id} realizado con éxito`}}))
     };
 
 </script>

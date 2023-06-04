@@ -10,3 +10,8 @@
 **Backoffice**
 - Manage users 
 - Manage products (crud)
+
+
+
+
+The product data is taken from `https://dummyjson.com/products`

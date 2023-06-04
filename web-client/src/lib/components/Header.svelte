@@ -1,28 +1,33 @@
 <script>
     import Logo from "./Logo.svelte";
-    import {links} from "svelte-routing"
+    import {links, useLocation} from "svelte-routing"
     import {loggedIn} from "../../store/session.js";
     import {cartSize} from "../../store/cart.js";
+    import Message from "./Message.svelte";
+    const location = useLocation();
+    $: message = $location.state && $location.state.message
 </script>
 
 <header use:links>
-    <a href="/web-client/public">
+    <a href="/">
         <Logo/>
     </a>
     <nav>
-        <a href="/web-client/public">Ofertas</a>
-        <a href="/web-client/public">Catálogo</a>
+        <a href="/">Ofertas</a>
+        <a href="/">Catálogo</a>
         {#if !$loggedIn}
             <a href="/login">Login</a>
         {:else}
-            <a href="/web-client/public">Mi cuenta</a>
+            <a href="/">Mi cuenta</a>
         {/if}
         <a href="/cart">Carrito({$cartSize})</a>
     </nav>
 </header>
+{#if message}
+    <Message>{message}</Message>
+{/if}
 
 <style>
-
     header {
         background-color: aliceblue;
         display: flex;
