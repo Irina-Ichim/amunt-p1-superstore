@@ -1,14 +1,15 @@
 <script>
     import {Route, Router} from "svelte-routing";
-    import Header from "./lib/Header.svelte";
-    import Footer from "./lib/Footer.svelte";
-    import Catalog from "./lib/Catalog.svelte";
-    import LoginPage from "./lib/LoginPage.svelte";
+    import Header from "./lib/components/Header.svelte";
+    import Footer from "./lib/components/Footer.svelte";
+    import Catalog from "./lib/pages/Catalog.svelte";
+    import LoginPage from "./lib/pages/Login.svelte";
     import {ProductApi} from "./api/ProductApi.js";
     import {onMount} from "svelte";
     import {products} from "./store/products.js";
-    import ProductPage from "./lib/ProductPage.svelte";
-    import Cart from "./lib/Cart.svelte";
+    import ProductPage from "./lib/pages/Product.svelte";
+    import Cart from "./lib/pages/Cart.svelte";
+    import Checkout from "./lib/pages/Checkout.svelte";
 
     let url = "/";
     let api = new ProductApi();
@@ -30,5 +31,6 @@
     <Route path="/cart">
         <Cart/>
     </Route>
+    <Route path="/checkout" component={Checkout} />
     <Footer/>
 </Router>

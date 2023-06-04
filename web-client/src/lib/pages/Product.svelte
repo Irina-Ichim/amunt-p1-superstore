@@ -1,8 +1,8 @@
 <script>
-    import {products} from "../store/products.js";
-    import Button from "./Button.svelte";
+    import {products} from "../../store/products.js";
+    import Button from "../components/Button.svelte";
     import {navigate} from "svelte-routing";
-    import {cart} from "../store/cart.js";
+    import {cart} from "../../store/cart.js";
 
     export let id;
     let productInfo;

@@ -1,6 +1,6 @@
 <script>
     import {navigate, useLocation} from "svelte-routing";
-    import {AuthApi} from "../api/AuthApi.js";
+    import {AuthApi} from "../../api/AuthApi.js";
 
     const location = useLocation();
     $: redirectPathOnSuccess = $location.state.redirectTo || "/";

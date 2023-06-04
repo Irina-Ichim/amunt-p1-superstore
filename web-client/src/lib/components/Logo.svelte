@@ -1,5 +1,5 @@
 <script>
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 </script>
 
 <img src={logo} alt="logo">

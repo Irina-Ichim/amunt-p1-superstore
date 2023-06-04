@@ -1,6 +1,6 @@
 <script>
-    import ProductCard from "./ProductCard.svelte";
-    import {products} from "../store/products.js";
+    import ProductCard from "../components/ProductCard.svelte";
+    import {products} from "../../store/products.js";
 
     let productList = [];
     products.subscribe(value => productList = value);

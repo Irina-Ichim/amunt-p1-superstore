@@ -1,21 +1,21 @@
 <script>
     import Logo from "./Logo.svelte";
     import {links} from "svelte-routing"
-    import {loggedIn} from "../store/session.js";
-    import {cartSize} from "../store/cart.js";
+    import {loggedIn} from "../../store/session.js";
+    import {cartSize} from "../../store/cart.js";
 </script>
 
 <header use:links>
-    <a href="/">
+    <a href="/web-client/public">
         <Logo/>
     </a>
     <nav>
-        <a href="/">Ofertas</a>
-        <a href="/">Catálogo</a>
+        <a href="/web-client/public">Ofertas</a>
+        <a href="/web-client/public">Catálogo</a>
         {#if !$loggedIn}
             <a href="/login">Login</a>
         {:else}
-            <a href="/">Mi cuenta</a>
+            <a href="/web-client/public">Mi cuenta</a>
         {/if}
         <a href="/cart">Carrito({$cartSize})</a>
     </nav>
