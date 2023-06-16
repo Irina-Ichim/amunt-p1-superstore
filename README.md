@@ -20,14 +20,19 @@ From within the `web-client` folder, run the `npm install` command to install de
 
 ## SuperStore API
 
-| Method | Path                                   | Description                                      | Secured? | Implemented? |
-|--------|----------------------------------------|--------------------------------------------------|----------|--------------|
-| GET    | `/api/products`                        | Returns all products in the store                | No       | ✅            |
-| GET    | `/api/customers/{id}`                  | Returns customer data (name, shipping info, etc) | Yes      | ❌            |
-| GET    | `/api/customers/{id}/orders`           | Returns all customer's orders                    | Yes      | ❌            |
-| GET    | `/api/customers/{id}/orders/{orderId}` | Returns order information                        | Yes      | ❌            |
+| Method | Path                               | Description                                      | Secured? | Implemented? |
+|--------|------------------------------------|--------------------------------------------------|----------|--------------|
+| GET    | `/api/products`                    | Returns all products in the store                | No       | ✅            |
+| GET    | `/api/customers/{id}`              | Returns customer data (name, shipping info, etc) | Yes      | ❌            |
+| GET    | `/api/customers/{id}/orders`       | Returns all customer's orders                    | Yes      | ❌            |
+| GET    | `/api/customers/{id}/shippingInfo` | Returns a customer's shipping information        | Yes      | ❌            |
 
              
+
+TODO: 
+
+-[ ] mensaje al añadir producto al carrito
+-[ ]
 
 
 ## References
