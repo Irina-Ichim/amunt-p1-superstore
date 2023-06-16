@@ -16,6 +16,8 @@ data class Customer(
         @Id
         val id: UUID,
         val name: String,
+        val email: String,
+        val password: String,
         val nif: String,
         @OneToOne(cascade = [CascadeType.PERSIST])
         val shippingInfo: ShippingInfo,

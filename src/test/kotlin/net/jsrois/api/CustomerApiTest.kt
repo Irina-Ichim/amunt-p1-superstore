@@ -50,6 +50,8 @@ class CustomerApiTest {
         val customer = customerRepository.save(
                 Customer(id = UUID.randomUUID(),
                         name = "Pepito Perez",
+                        email = "pepito@example.com",
+                        password = "cambiame",
                         nif = "42415125R",
                         shippingInfo = shippingInfo,
                         orders = emptySet())
