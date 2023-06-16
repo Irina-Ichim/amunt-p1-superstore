@@ -35,13 +35,6 @@ class OrdersApiTest {
     @Autowired
     private lateinit var productRepository: ProductRepository
 
-
-    @BeforeEach
-    fun setUp() {
-
-    }
-
-
     @Test
     fun `allows to create an order and add products to it`() {
 
@@ -81,6 +74,12 @@ class OrdersApiTest {
                 Unit, OrderDto::class.java).let {
             assertThat(it.statusCode, equalTo(HttpStatus.OK))
             assertThat(it.body?.products, equalTo(listOf(product1.id)))
+        }
+
+        api.postForEntity("/api/orders/${newOrder.id}/products?productId=${product2.id}",
+                Unit, OrderDto::class.java).let {
+            assertThat(it.statusCode, equalTo(HttpStatus.OK))
+            assertThat(it.body?.products, equalTo(listOf(product1.id, product2.id)))
         }
 
 

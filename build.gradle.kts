@@ -27,6 +27,7 @@ dependencies {
     testImplementation("com.codeborne:selenide:6.12.3")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
+    implementation("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 
