@@ -11,10 +11,10 @@ import java.util.UUID
 @Entity
 @Table(name="purchases")
 data class Purchase(
-        @ManyToOne(cascade = [CascadeType.PERSIST])
+        @ManyToOne(cascade = [CascadeType.MERGE])
         @JoinColumn(name = "product_id")
         var product: Product,
-        @ManyToOne(cascade = [CascadeType.PERSIST])
+        @ManyToOne(cascade = [CascadeType.MERGE])
         @JoinColumn(name = "order_id")
         var order: Order,
         @Id

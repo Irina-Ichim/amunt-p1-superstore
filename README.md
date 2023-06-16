@@ -24,8 +24,9 @@ From within the `web-client` folder, run the `npm install` command to install de
 |--------|------------------------------|--------------------------------------------------|----------|--------------|
 | GET    | `/api/products`              | Returns all products in the store                | No       | ✅            |
 | GET    | `/api/customers/{id}`        | Returns customer data (name, shipping info, etc) | Yes      | ✅            |
+| POST   | `/api/customers/{id}/orders` | Creates a new order for a customer               | Yes      | ❌            |
+| POST   | `/api/orders/{id}/products`  | Adds a product to an existing order              | Yes      | ❌            |
 | GET    | `/api/customers/{id}/orders` | Returns all customer's orders                    | Yes      | ❌            |
-| POST   | `/api/customers/{id}/orders` | Creates a new order for a user                   | Yes      | ❌            |
 
 TODO:
 

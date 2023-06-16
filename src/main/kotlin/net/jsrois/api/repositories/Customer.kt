@@ -19,5 +19,5 @@ data class Customer(
         val nif: String,
         @OneToOne(cascade = [CascadeType.PERSIST])
         val shippingInfo: ShippingInfo,
-        @OneToMany
+        @OneToMany(mappedBy = "customer", cascade = [CascadeType.MERGE])
         val orders: Set<Order>)

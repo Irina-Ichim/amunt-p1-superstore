@@ -1,9 +1,6 @@
 package net.jsrois.api.domain
 
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.OneToMany
-import jakarta.persistence.Table
+import jakarta.persistence.*
 import java.util.UUID
 
 @Entity
@@ -12,7 +9,7 @@ data class Product(
         var name: String,
         var price: Double,
         var imageUrl: String,
-        @OneToMany(mappedBy = "product")
+        @OneToMany(mappedBy = "product", cascade = [CascadeType.REFRESH])
         var purchases: Set<Purchase> = emptySet(),
         @Id
         var id: UUID
