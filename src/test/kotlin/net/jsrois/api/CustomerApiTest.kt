@@ -8,11 +8,13 @@ import net.jsrois.api.repositories.CustomerRepository
 import net.jsrois.api.repositories.ShippingInfoRepository
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.equalTo
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.boot.test.web.client.TestRestTemplate
+import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatus.OK
 import org.springframework.test.context.ActiveProfiles
 import java.util.UUID
@@ -29,6 +31,12 @@ class CustomerApiTest {
     @Autowired
     private lateinit var api: TestRestTemplate
 
+    @BeforeEach
+    fun setUp() {
+        customerRepository.deleteAll()
+        shippingInfoRepository.deleteAll()
+    }
+
     @Test
     fun `returns customer information`() {
         val shippingInfo = shippingInfoRepository.save(
@@ -42,7 +50,7 @@ class CustomerApiTest {
         val customer = customerRepository.save(
                 Customer(id = UUID.randomUUID(),
                         name = "Pepito Perez",
-                        nif= "42415125R",
+                        nif = "42415125R",
                         shippingInfo = shippingInfo)
         )
 
@@ -53,7 +61,7 @@ class CustomerApiTest {
         assertThat(response.body, equalTo(CustomerDTO(
                 id = customer.id,
                 name = "Pepito Perez",
-                nif= "42415125R",
+                nif = "42415125R",
                 shippingInfo = ShippingInfoDTO(
                         id = shippingInfo.id,
                         address = "Carrer Muntaner 137 bajos",
@@ -64,5 +72,12 @@ class CustomerApiTest {
         )))
 
 
+    }
+
+    @Test
+    fun `returns a 404 error when the user does not exist`() {
+        val id = UUID.randomUUID()
+        val response = api.getForEntity("/api/customers/${id}", Any::class.java)
+        assertThat(response.statusCode, equalTo(HttpStatus.NOT_FOUND))
     }
 }
