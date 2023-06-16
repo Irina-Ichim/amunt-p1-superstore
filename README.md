@@ -20,20 +20,18 @@ From within the `web-client` folder, run the `npm install` command to install de
 
 ## SuperStore API
 
-| Method | Path                               | Description                                      | Secured? | Implemented? |
-|--------|------------------------------------|--------------------------------------------------|----------|--------------|
-| GET    | `/api/products`                    | Returns all products in the store                | No       | ✅            |
-| GET    | `/api/customers/{id}`              | Returns customer data (name, shipping info, etc) | Yes      | ❌            |
-| GET    | `/api/customers/{id}/orders`       | Returns all customer's orders                    | Yes      | ❌            |
-| GET    | `/api/customers/{id}/shippingInfo` | Returns a customer's shipping information        | Yes      | ❌            |
+| Method | Path                         | Description                                      | Secured? | Implemented? |
+|--------|------------------------------|--------------------------------------------------|----------|--------------|
+| GET    | `/api/products`              | Returns all products in the store                | No       | ✅            |
+| GET    | `/api/customers/{id}`        | Returns customer data (name, shipping info, etc) | Yes      | ✅            |
+| GET    | `/api/customers/{id}/orders` | Returns all customer's orders                    | Yes      | ❌            |
+| POST   | `/api/customers/{id}/orders` | Creates a new order for a user                   | Yes      | ❌            |
 
-             
-
-TODO: 
+TODO:
 
 -[ ] mensaje al añadir producto al carrito
 -[ ]
 
-
 ## References
+
 The product data is taken from `https://dummyjson.com/products`

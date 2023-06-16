@@ -25,8 +25,8 @@ class ProductApiTest {
     @Test
     fun `returns all products`() {
         val products = productRepository.saveAll(listOf(
-                Product("IPhone 9", 799.99, "http://example.com/image.png", UUID.randomUUID()),
-                Product("Toalla de playa", 13.99, "http://example.com/image.png", UUID.randomUUID())
+                Product(name = "IPhone 9", price = 799.99, imageUrl = "http://example.com/image.png", id = UUID.randomUUID()),
+                Product(name = "Toalla de playa", price = 13.99, imageUrl = "http://example.com/image.png", id = UUID.randomUUID())
         ))
 
         val response = api.getForEntity("/api/products", Array<Product>::class.java)

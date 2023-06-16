@@ -51,7 +51,8 @@ class CustomerApiTest {
                 Customer(id = UUID.randomUUID(),
                         name = "Pepito Perez",
                         nif = "42415125R",
-                        shippingInfo = shippingInfo)
+                        shippingInfo = shippingInfo,
+                        orders = emptySet())
         )
 
         val response = api.getForEntity("/api/customers/${customer.id}", CustomerDTO::class.java)
