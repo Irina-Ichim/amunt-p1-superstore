@@ -1,17 +1,34 @@
-### TODO
+# SuperStore
 
-**Basic**
-- A user has orders (one to many)
-- Many users
-  - User registration
-- Liking products
+A project built with Kotlin, SpringBoot, and Svelte.
+
+## How to start
+
+### Run locally (Frontend+Backend)
+
+To run this project locally, use the project's Gradle Wrapper:
+
+```
+./gradlew bootRun
+```
+
+Note this will compile both the API and the Svelte client in a single command.
+
+### Run frontend only (development mode)
+
+From within the `web-client` folder, run the `npm install` command to install dependencies and then `npm run dev`.
+
+## SuperStore API
+
+| Method | Path                                   | Description                                      | Secured? | Implemented? |
+|--------|----------------------------------------|--------------------------------------------------|----------|--------------|
+| GET    | `/api/products`                        | Returns all products in the store                | No       | ✅            |
+| GET    | `/api/customers/{id}`                  | Returns customer data (name, shipping info, etc) | Yes      | ❌            |
+| GET    | `/api/customers/{id}/orders`           | Returns all customer's orders                    | Yes      | ❌            |
+| GET    | `/api/customers/{id}/orders/{orderId}` | Returns order information                        | Yes      | ❌            |
+
+             
 
 
-**Backoffice**
-- Manage users 
-- Manage products (crud)
-
-
-
-
+## References
 The product data is taken from `https://dummyjson.com/products`
