@@ -1,11 +1,13 @@
 package net.jsrois.api
 
+import net.jsrois.api.controllers.OrderDto
 import net.jsrois.api.controllers.OrderRequest
 import net.jsrois.api.domain.Order
 import net.jsrois.api.domain.Product
 import net.jsrois.api.domain.ShippingInfo
 import net.jsrois.api.repositories.*
 import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.contains
 import org.hamcrest.Matchers.equalTo
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -76,8 +78,9 @@ class OrdersApiTest {
         }
 
         api.postForEntity("/api/orders/${newOrder.id}/products?productId=${product1.id}",
-                Unit, Order::class.java).let {
+                Unit, OrderDto::class.java).let {
             assertThat(it.statusCode, equalTo(HttpStatus.OK))
+            assertThat(it.body?.products, equalTo(listOf(product1.id)))
         }
 
 

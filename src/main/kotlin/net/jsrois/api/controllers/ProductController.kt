@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/products")
 class ProductController(private val productRepository: ProductRepository) {
     @GetMapping
-    fun allproducts() = productRepository.findAll()
+    fun allproducts() = productRepository.findAll().map{ProductDTO.from(it)}
 }

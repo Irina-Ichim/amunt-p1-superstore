@@ -9,6 +9,6 @@ data class OrderDto(val id: UUID,
                     val city: String,
                     val country: String,
                     val postalCode: String,
-                    val products: List<ProductDTO>) {
+                    val products: List<UUID>) {
     companion object
 }

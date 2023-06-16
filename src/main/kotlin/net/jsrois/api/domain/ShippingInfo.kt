@@ -7,7 +7,7 @@ import java.util.*
 
 @Entity
 @Table(name = "shipping_info")
-data class ShippingInfo(val address: String,
+class ShippingInfo(val address: String,
                         val city: String,
                         val postalCode: String,
                         val country: String,

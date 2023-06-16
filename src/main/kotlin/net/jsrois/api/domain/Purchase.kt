@@ -1,5 +1,6 @@
 package net.jsrois.api.domain
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
@@ -10,7 +11,7 @@ import java.util.UUID
 
 @Entity
 @Table(name="purchases")
-data class Purchase(
+class Purchase(
         @ManyToOne(cascade = [CascadeType.MERGE])
         @JoinColumn(name = "product_id")
         var product: Product,

@@ -1,5 +1,6 @@
 package net.jsrois.api
 
+import net.jsrois.api.controllers.ProductDTO
 import net.jsrois.api.domain.Product
 import net.jsrois.api.repositories.ProductRepository
 import org.hamcrest.MatcherAssert.assertThat
@@ -29,9 +30,9 @@ class ProductApiTest {
                 Product(name = "Toalla de playa", price = 13.99, imageUrl = "http://example.com/image.png", id = UUID.randomUUID())
         ))
 
-        val response = api.getForEntity("/api/products", Array<Product>::class.java)
+        val response = api.getForEntity("/api/products", Array<ProductDTO>::class.java)
 
         assertThat(response.statusCode, equalTo(OK))
-        assertThat(response.body?.asList(), equalTo(products))
+        assertThat(response.body?.asList(), equalTo(products.map{ProductDTO.from(it)}))
     }
 }

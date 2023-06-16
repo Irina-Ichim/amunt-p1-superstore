@@ -1,16 +1,17 @@
 package net.jsrois.api.domain
 
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.*
 import java.util.UUID
 
 @Entity
 @Table(name = "products")
-data class Product(
+class Product(
         var name: String,
         var price: Double,
         var imageUrl: String,
-        @OneToMany(mappedBy = "product", cascade = [CascadeType.REFRESH])
-        var purchases: Set<Purchase> = emptySet(),
+        @OneToMany(mappedBy = "product")
+        var purchases: List<Purchase> = emptyList(),
         @Id
         var id: UUID
 )
