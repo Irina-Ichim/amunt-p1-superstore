@@ -5,6 +5,8 @@
 
     const goToCheckout = () => navigate("/login", {state: {redirectTo: "/checkout"}});
     const continueShopping = () => navigate("/");
+
+    const payButtonEnabled = $cartSize > 0
 </script>
 
 <div>
@@ -37,7 +39,9 @@
         </tbody>
     </table>
     <ul>
-        <Button on:click={goToCheckout} orange>Pagar</Button>
+        {#if payButtonEnabled}
+            <Button on:click={goToCheckout} orange>Pagar</Button>
+        {/if}
         <Button on:click={continueShopping}>Seguir comprando</Button>
     </ul>
 </div>

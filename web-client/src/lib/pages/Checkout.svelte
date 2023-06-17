@@ -1,6 +1,9 @@
 <script>
     import OrderApi from "../../api/OrderApi.js";
     import {navigate} from "svelte-routing";
+    import {onMount} from "svelte";
+    import {currentUserId} from "../../store/session.js";
+    import {CustomerApi} from "../../api/CustomerApi.js";
 
     let firstName;
     let lastName;
@@ -8,9 +11,20 @@
     let address;
     let postalCode;
 
+    onMount( () => {
+        let api = new CustomerApi();
+        api.getCustomerInfo($currentUserId)
+            .then(info => {
+                firstName = info.name;
+                nif = info.nif;
+                address = info.shippingInfo.address;
+                postalCode = info.shippingInfo.postalCode;
+            })
+    })
+
     let handleSubmit = () => {
         const api = new OrderApi();
-        api.createOrder({firstName,lastName,nif,address,postalCode})
+        api.createOrder({firstName, lastName, nif, address, postalCode})
             .then(({id}) => navigate("/", {state: {message: `Pedido #${id} realizado con éxito`}}))
     };
 
@@ -39,12 +53,13 @@
         display: flex;
         flex-direction: column;
     }
+
     input {
         width: 70%;
         height: 30px;
         margin-bottom: 15px;
-
     }
+
     input[type=submit] {
         width: 30%;
     }
