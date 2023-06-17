@@ -1,5 +1,5 @@
 <script>
-    import {currentUser, loggedIn} from "../../store/session.js";
+    import {currentUserId, currentUserName, loggedIn} from "../../store/session.js";
     import OrderApi from "../../api/OrderApi.js";
     import Button from "../components/Button.svelte";
     import {navigate} from "svelte-routing";
@@ -11,12 +11,13 @@
     }
 </script>
 <section>
-    <h1>Bienvenido {$currentUser.name} </h1>
+    <h1>Bienvenido {$currentUserName} </h1>
     <h2>Tus pedidos</h2>
-    {#await api.getOrders() then orders}
-        {#each orders as {id, products, shippingData, status, totalCost}}
-            #{id} ({status}) with {products.length} products and a total cost of {totalCost}
-        {/each}
+    {#await api.getOrders($currentUserId) then orders}
+        {@debug orders}
+        <!--{#each orders as {id, products, shippingData, status, totalCost}}-->
+        <!--    #{id} ({status}) with {products.length} products and a total cost of {totalCost}-->
+        <!--{/each}-->
     {/await}
 
     <Button on:click={logout}>Salir</Button>
