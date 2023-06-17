@@ -5,6 +5,7 @@ import net.jsrois.api.domain.Product
 import net.jsrois.api.repositories.ProductRepository
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.equalTo
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -22,6 +23,11 @@ class ProductApiTest {
 
     @Autowired
     private lateinit var productRepository: ProductRepository
+
+    @BeforeEach
+    fun setUp() {
+        productRepository.deleteAll()
+    }
 
     @Test
     fun `returns all products`() {

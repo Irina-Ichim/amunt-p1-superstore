@@ -35,6 +35,13 @@ class OrdersApiTest {
     @Autowired
     private lateinit var productRepository: ProductRepository
 
+    @BeforeEach
+    fun setUp() {
+        customerRepository.deleteAll()
+        productRepository.deleteAll()
+        shippingInfoRepository.deleteAll()
+    }
+
     @Test
     fun `allows to create an order and add products to it`() {
 

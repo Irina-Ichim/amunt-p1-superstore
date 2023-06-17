@@ -18,7 +18,7 @@ class AuthController(private val customerRepository: CustomerRepository) {
             customerRepository.findByEmailEquals(loginRequest.username).getOrNull()
                     ?.let { customer ->
                         customer.takeIf { it.password == loginRequest.password }
-                                ?.let { LoginResponse(customer.id) }
+                                ?.let { LoginResponse(customer.id, customer.name) }
                                 ?: throw ResponseStatusException(HttpStatus.UNAUTHORIZED)
                     }
                     ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
