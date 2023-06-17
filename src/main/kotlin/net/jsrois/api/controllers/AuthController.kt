@@ -12,6 +12,7 @@ import kotlin.jvm.optionals.getOrNull
 @RestController
 @RequestMapping("/api/auth")
 class AuthController(private val customerRepository: CustomerRepository) {
+
     @PostMapping("/login")
     fun login(@RequestBody loginRequest: LoginRequest): LoginResponse =
             customerRepository.findByEmailEquals(loginRequest.username).getOrNull()
@@ -21,6 +22,5 @@ class AuthController(private val customerRepository: CustomerRepository) {
                                 ?: throw ResponseStatusException(HttpStatus.UNAUTHORIZED)
                     }
                     ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
-
 
 }

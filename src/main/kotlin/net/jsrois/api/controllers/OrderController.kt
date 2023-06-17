@@ -6,6 +6,7 @@ import net.jsrois.api.repositories.CustomerRepository
 import net.jsrois.api.repositories.OrderRepository
 import net.jsrois.api.repositories.ProductRepository
 import net.jsrois.api.repositories.PurchaseRepository
+import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatus.NOT_FOUND
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
@@ -13,26 +14,33 @@ import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
 @RestController
-class OrderController(private val customerRepository: CustomerRepository, private val orderRepository: OrderRepository, private val productRepository: ProductRepository, private val purchaseRepository: PurchaseRepository) {
+class OrderController(
+    private val customerRepository: CustomerRepository,
+    private val orderRepository: OrderRepository,
+    private val productRepository: ProductRepository,
+    private val purchaseRepository: PurchaseRepository
+) {
 
     @PostMapping("/api/customers/{customerId}/orders")
-    fun addOrderForCustomerId(@PathVariable customerId: String, @RequestBody orderRequest: OrderRequest) {
-        customerRepository.findById(UUID.fromString(customerId))
-                .getOrNull()
-                ?.let { customer ->
-                    with(orderRequest) {
-                        Order(address = address,
-                                city = city,
-                                postalCode = postalCode,
-                                country = country,
-                                id = id,
-                                purchases = emptyList(),
-                                customer = customer)
-                    }.let {
-                        orderRepository.save(it)
-                    }
+    fun addOrderForCustomerId(@PathVariable customerId: String, @RequestBody orderRequest: OrderRequest) =
+        customerRepository.findById(UUID.fromString(customerId)).getOrNull()
+            .takeIf { it !== null }
+            ?.let { customer ->
+                with(orderRequest) {
+                    Order(
+                        address = address,
+                        city = city,
+                        postalCode = postalCode,
+                        country = country,
+                        id = id,
+                        purchases = emptyList(),
+                        customer = customer
+                    )
+                }.let {
+                    orderRepository.save(it).toOrderDto()
                 }
-    }
+            }
+            ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
 
     @PostMapping("/api/orders/{orderId}/products")
     fun addProduct(@PathVariable orderId: String, @RequestParam(required = true) productId: String): OrderDto {
@@ -41,16 +49,8 @@ class OrderController(private val customerRepository: CustomerRepository, privat
         if (product == null || order == null) {
             throw ResponseStatusException(NOT_FOUND)
         }
-
         purchaseRepository.save(Purchase(product, order, UUID.randomUUID()))
-
-//        order.purchases += purchase
-//        product.purchases += purchase
-//
-//        productRepository.save(product)
-//        val savedOrder = orderRepository.save(order)
         return order.toOrderDto()
-
     }
 
 }

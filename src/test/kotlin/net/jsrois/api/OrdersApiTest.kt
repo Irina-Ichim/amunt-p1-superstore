@@ -49,6 +49,8 @@ class OrdersApiTest {
         val customer = customerRepository.save(
                 Customer(id = UUID.randomUUID(),
                         name = "Pepito Perez",
+                        email = "pepito@example.com",
+                        password = "qwerty12345",
                         nif = "42415125R",
                         shippingInfo = shippingInfo,
                         orders = emptySet())
@@ -66,8 +68,9 @@ class OrdersApiTest {
         val product2 = productRepository.save(Product(name = "Toalla de playa", price = 13.99, imageUrl = "http://example.com/image.png", id = UUID.randomUUID()))
 
         api.postForEntity("/api/customers/${customer.id}/orders",
-                newOrder, Order::class.java).let {
+                newOrder, OrderDto::class.java).let {
             assertThat(it.statusCode, equalTo(HttpStatus.OK))
+            assertThat(it.body?.id, equalTo(newOrder.id))
         }
 
         api.postForEntity("/api/orders/${newOrder.id}/products?productId=${product1.id}",

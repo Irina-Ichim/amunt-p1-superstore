@@ -1,0 +1,31 @@
+### Login de usuario
+POST localhost:8080/api/auth/login
+Content-Type: application/json
+
+{ "username":  "user@superstore.com", "password": "password" }
+
+> {%
+    client.global.set("customer_id", response.body.id);
+%}
+
+### Devuelve la información que exista del usuario
+GET localhost:8080/api/customers/{{customer_id}}
+
+### Crea un nuevo pedido (order) para el usuario
+POST localhost:8080/api/customers/{{customer_id}}/orders
+Content-Type: application/json
+
+{
+  "id": "{{$random.uuid}}",
+  "address": "carrer de muntaner 137, 2-1",
+  "postalCode": "08099",
+  "city": "Barcelona",
+  "country": "Spain"
+}
+
+> {%
+    client.global.set("order_id", response.body.id);
+%}
+
+### devuelve los pedidos que existen para el usuario
+GET localhost:8080/api/customers/{{customer_id}}/orders
