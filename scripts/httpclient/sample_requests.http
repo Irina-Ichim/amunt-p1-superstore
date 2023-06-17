@@ -27,5 +27,15 @@ Content-Type: application/json
     client.global.set("order_id", response.body.id);
 %}
 
+### Obtiene el id de un producto cualquiera
+GET localhost:8080/api/products
+
+> {%
+    client.global.set("product_id", response.body[0].id);
+%}
+
+### Añade el producto al pedido
+POST localhost:8080/api/orders/{{order_id}}/products?productId={{product_id}}
+
 ### devuelve los pedidos que existen para el usuario
 GET localhost:8080/api/customers/{{customer_id}}/orders
