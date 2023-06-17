@@ -4,6 +4,7 @@
     import {onMount} from "svelte";
     import {currentUserId} from "../../store/session.js";
     import {CustomerApi} from "../../api/CustomerApi.js";
+    import {cart} from "../../store/cart.js";
 
     let firstName;
     let lastName;
@@ -11,7 +12,7 @@
     let address;
     let postalCode;
 
-    onMount( () => {
+    onMount(() => {
         let api = new CustomerApi();
         api.getCustomerInfo($currentUserId)
             .then(info => {
@@ -22,10 +23,27 @@
             })
     })
 
-    let handleSubmit = () => {
+    let handleSubmit = async () => {
         const api = new OrderApi();
-        api.createOrder({firstName, lastName, nif, address, postalCode})
-            .then(({id}) => navigate("/", {state: {message: `Pedido #${id} realizado con éxito`}}))
+
+        let order = {
+            id: crypto.randomUUID(),
+            address,
+            postalCode,
+            city: "Barcelona",
+            country: "Spain"
+        }
+
+        api.createOrder($currentUserId, order)
+            .then(() =>
+                Promise.all(
+                    $cart.map(p => api.addProduct(order.id, p.id))
+                )
+            )
+            .then(() => {
+                cart.update(_ => []);
+                navigate("/", {state: {message: `Pedido [${order.id}] realizado con éxito`}})
+            })
     };
 
 </script>

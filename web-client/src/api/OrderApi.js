@@ -1,6 +1,5 @@
 import {developmentModeOn} from "./developmentMode.js";
 import fakeData from "../assets/fakeOrder.json"
-import {currentUser} from "../store/session.js";
 
 function fakeCreateOrder() {
     return Promise.resolve(fakeData);
@@ -12,29 +11,35 @@ function fakeGetOrders() {
 
 class OrderApi {
     createOrder(customerId, order) {
-        return developmentModeOn? fakeCreateOrder() :
+        return developmentModeOn ? fakeCreateOrder() :
             fetch(`/api/customers/${customerId}/orders`,
-            {
-                method: 'POST',
-                body: JSON.stringify(order)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Unable to create order!")
-                }
-                return response.json();
-            })
+                {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(order)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Unable to create order!")
+                    }
+                    return response.json();
+                })
     }
 
     getOrders(customerId) {
-        return developmentModeOn? fakeGetOrders() :
+        return developmentModeOn ? fakeGetOrders() :
             fetch(`/api/customers/${customerId}/orders`)
-            .then(response =>{
-                if (!response.ok) {
-                    throw new Error("Unable to create order!")
-                }
-                return response.json();
-            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Unable to create order!")
+                    }
+                    return response.json();
+                })
+    }
+
+    addProduct(orderId, productId) {
+        return fetch(`/api/orders/${orderId}/products?productId=${productId}`,
+            {method: 'POST'})
     }
 }
 
