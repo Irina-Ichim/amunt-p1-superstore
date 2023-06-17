@@ -42,6 +42,14 @@ class OrderController(
             }
             ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
 
+    @GetMapping("/api/customers/{customerId}/orders")
+    fun getOrdersForCustomerId(@PathVariable customerId: String): List<OrderDto> =
+        UUID.fromString(customerId)
+            .takeIf { customerRepository.existsById(it) }
+            ?.let { orderRepository.findAllByCustomerId(it) }
+            ?.map { it.toOrderDto() }
+            ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+
     @PostMapping("/api/orders/{orderId}/products")
     fun addProduct(@PathVariable orderId: String, @RequestParam(required = true) productId: String): OrderDto {
         val product = productRepository.findById(UUID.fromString(productId)).getOrNull()
