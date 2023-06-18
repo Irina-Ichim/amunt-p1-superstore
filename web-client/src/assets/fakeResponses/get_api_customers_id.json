@@ -1,0 +1,12 @@
+{
+  "id": "f12ecced-a481-40d1-9250-b5ef60553109",
+  "name": "pepita",
+  "nif": "45376589T",
+  "shippingInfo": {
+    "id": "c1d45ebe-5b1e-41c6-92f1-e2d17b531854",
+    "address": "carrer de muntaner 137, 2-1",
+    "city": "Barcelona",
+    "postalCode": "08099",
+    "country": "Spain"
+  }
+}

@@ -1,21 +1,17 @@
-import fakeData from "../assets/fakeProducts.json";
 import {developmentModeOn} from "./developmentMode.js";
-
-function fakeFetch() {
-    console.log("[development mode] Fetching fake data!");
-    return Promise.resolve(fakeData);
-}
+import {fakeFetch} from "./fakeApi/fakeFetch.js";
+import fakeResponse from '../assets/fakeResponses/get_api_products.json';
 
 export class ProductApi {
     getAllProducts() {
-        return developmentModeOn ? fakeFetch()
-
-            : fetch("/api/products")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Unable to get products. An error occurred");
-                }
-                return response.json();
-            })
+        return developmentModeOn ?
+            fakeFetch(fakeResponse) :
+            fetch("/api/products")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Unable to get products. An error occurred");
+                    }
+                    return response.json();
+                })
     }
 }

@@ -1,17 +1,13 @@
 import {developmentModeOn} from "./developmentMode.js";
-import fakeData from "../assets/fakeOrder.json"
+import {fakeFetch} from "./fakeApi/fakeFetch.js";
+import fakeCreateResponse from '../assets/fakeResponses/post_api_customers_id_orders.json';
+import fakeGetResponse from '../assets/fakeResponses/get_api_customers_id_orders.json';
 
-function fakeCreateOrder() {
-    return Promise.resolve(fakeData);
-}
-
-function fakeGetOrders() {
-    return Promise.resolve([fakeData]);
-}
 
 class OrderApi {
     createOrder(customerId, order) {
-        return developmentModeOn ? fakeCreateOrder() :
+        return developmentModeOn ?
+            fakeFetch(fakeCreateResponse) :
             fetch(`/api/customers/${customerId}/orders`,
                 {
                     method: 'POST',
@@ -27,7 +23,8 @@ class OrderApi {
     }
 
     getOrders(customerId) {
-        return developmentModeOn ? fakeGetOrders() :
+        return developmentModeOn ?
+            fakeFetch(fakeGetResponse) :
             fetch(`/api/customers/${customerId}/orders`)
                 .then(response => {
                     if (!response.ok) {
