@@ -2,6 +2,7 @@ import {developmentModeOn} from "./developmentMode.js";
 import {fakeFetch} from "./fakeApi/fakeFetch.js";
 import fakeCreateResponse from '../assets/fakeResponses/post_api_customers_id_orders.json';
 import fakeGetResponse from '../assets/fakeResponses/get_api_customers_id_orders.json';
+import fakeAddProductResponse from '../assets/fakeResponses/post_api_orders_id_products.json';
 
 
 class OrderApi {
@@ -35,8 +36,10 @@ class OrderApi {
     }
 
     addProduct(orderId, productId) {
-        return fetch(`/api/orders/${orderId}/products?productId=${productId}`,
-            {method: 'POST'})
+        return developmentModeOn ?
+            fakeFetch(fakeAddProductResponse) :
+            fetch(`/api/orders/${orderId}/products?productId=${productId}`,
+                {method: 'POST'})
     }
 }
 

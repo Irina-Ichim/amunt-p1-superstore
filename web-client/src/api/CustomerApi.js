@@ -4,9 +4,9 @@ import fakeResponse from '../assets/fakeResponses/get_api_customers_id.json';
 
 export class CustomerApi {
     getCustomerInfo(customerId) {
-        return (developmentModeOn ?
+        return developmentModeOn ?
             fakeFetch(fakeResponse) :
-            fetch(`/api/customers/${customerId}`))
-            .then(response => response.json())
+            fetch(`/api/customers/${customerId}`)
+                .then(response => response.json())
     }
 }

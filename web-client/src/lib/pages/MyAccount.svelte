@@ -11,15 +11,23 @@
         navigate("/", {state: {message: "Has salido de tu cuenta con éxito"}});
     }
 </script>
-<section>
-    <h1>Bienvenido {$currentUserName} </h1>
+<main>
+    <h1>Bienvenido {$currentUserName}</h1>
+
     <h2>Tus pedidos</h2>
+    <section class="orders">
     {#await api.getOrders($currentUserId) then orders}
         {#each orders as order}
             <Order {...order}/>
         {/each}
     {/await}
-
+    </section>
     <Button on:click={logout}>Salir</Button>
-</section>
+</main>
 
+<style>
+    main {
+        max-width: 500px;
+        margin: 50px auto;
+    }
+</style>
