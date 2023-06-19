@@ -38,5 +38,4 @@ The product data is taken from `https://dummyjson.com/products`
 
 ### Fix
 
-- Not allow empty login
 - Description in database undefined
