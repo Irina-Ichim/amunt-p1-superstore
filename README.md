@@ -28,11 +28,6 @@ From within the `web-client` folder, run the `npm install` command to install de
 | POST   | `/api/orders/{id}/products`  | Adds a product to an existing order              | Yes      | ❌            |
 | GET    | `/api/customers/{id}/orders` | Returns all customer's orders                    | Yes      | ❌            |
 
-TODO:
-
--[ ] mensaje al añadir producto al carrito
--[ ]
-
 ## References
 
 The product data is taken from `https://dummyjson.com/products`
