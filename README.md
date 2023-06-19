@@ -6,6 +6,10 @@ A project built with Kotlin, SpringBoot, and Svelte.
 
 ### Run locally (Frontend+Backend)
 
+#### Database
+The application requires a postgress database running on port 5432. See `src/main/resources/application.properties` for 
+details.
+
 To run this project locally, use the project's Gradle Wrapper:
 
 ```
