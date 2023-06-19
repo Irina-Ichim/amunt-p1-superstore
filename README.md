@@ -35,7 +35,3 @@ From within the `web-client` folder, run the `npm install` command to install de
 ## References
 
 The product data is taken from `https://dummyjson.com/products`
-
-### Fix
-
-- Description in database undefined
