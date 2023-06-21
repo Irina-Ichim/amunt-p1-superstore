@@ -8,7 +8,7 @@ A project built with Kotlin, SpringBoot, and Svelte.
 
 #### Database
 The application requires a postgress database running on port 5432. See `src/main/resources/application.properties` for 
-details.
+details.`
 
 To run this project locally, use the project's Gradle Wrapper:
 
@@ -24,13 +24,13 @@ From within the `web-client` folder, run the `npm install` command to install de
 
 ## SuperStore API
 
-| Method | Path                         | Description                                      | Secured? | Implemented? |
-|--------|------------------------------|--------------------------------------------------|----------|--------------|
-| GET    | `/api/products`              | Returns all products in the store                | No       | ✅            |
-| GET    | `/api/customers/{id}`        | Returns customer data (name, shipping info, etc) | Yes      | ✅            |
-| POST   | `/api/customers/{id}/orders` | Creates a new order for a customer               | Yes      | ❌            |
-| POST   | `/api/orders/{id}/products`  | Adds a product to an existing order              | Yes      | ❌            |
-| GET    | `/api/customers/{id}/orders` | Returns all customer's orders                    | Yes      | ❌            |
+| Method | Path                         | Description                                      |
+|--------|------------------------------|--------------------------------------------------|
+| GET    | `/api/products`              | Returns all products in the store                |
+| GET    | `/api/customers/{id}`        | Returns customer data (name, shipping info, etc) |
+| POST   | `/api/customers/{id}/orders` | Creates a new order for a customer               |
+| POST   | `/api/orders/{id}/products`  | Adds a product to an existing order              |
+| GET    | `/api/customers/{id}/orders` | Returns all customer's orders                    |
 
 ## References
 

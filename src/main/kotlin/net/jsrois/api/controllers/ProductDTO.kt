@@ -11,11 +11,12 @@ data class ProductDTO(
         var name: String,
         var price: Double,
         var imageUrl: String,
+        var description: String,
         var id: UUID
 ) {
     companion object {
         fun from(product: Product) = with(product) {
-            ProductDTO(name, price, imageUrl, id)
+            ProductDTO(name, price, imageUrl, descriptionText, id)
         }
     }
 }

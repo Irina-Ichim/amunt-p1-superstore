@@ -24,7 +24,6 @@ export class AuthApi {
                 let {name, id} = loginInfo
                 logInUser(name, id);
             })
-            .catch(err => console.log(err))
     }
 
     loginWithAuthApi(username, password) {
