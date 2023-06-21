@@ -14,7 +14,7 @@
     let goBack = () => navigate("/");
     let addProductToCart = () => {
         $cart = [...$cart, productInfo];
-        navigate("/");
+        navigate("/", {state: {message: `Añadido ${productInfo.name} a tu carrito`}})
     };
 </script>
 
