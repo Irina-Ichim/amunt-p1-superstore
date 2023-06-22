@@ -11,7 +11,6 @@ import kotlin.jvm.optionals.getOrNull
 @RequestMapping("/api/products")
 class ProductController(private val productRepository: ProductRepository) {
     @GetMapping
-    @CrossOrigin
     fun allproducts() = productRepository.findAll().map{ProductDTO.from(it)}
 
     @GetMapping("/{id}")
