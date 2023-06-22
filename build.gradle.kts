@@ -1,4 +1,5 @@
 import com.github.gradle.node.npm.task.NpmTask
+import org.gradle.kotlin.dsl.processResources
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 
@@ -44,43 +45,29 @@ tasks.withType<Test> {
 }
 
 
-// frontend compilation
-val webClientPath = "./web-client"
+fun buildClient(prefix: String, path: String, destinationPath: String) {
+    val installFrontendDependencies = tasks.register<NpmTask>("${prefix}InstallDependencies") {
+        workingDir.set(file(path))
+        args.set(listOf("install"))
+    }
 
+    val compileWebClient = tasks.register<NpmTask>("${prefix}CompileClient") {
+        dependsOn(installFrontendDependencies)
+        workingDir.set(file(path))
+        args.set(listOf("run", "build"))
+    }
 
-val buildWithNpm = tasks.register<NpmTask>("buildWithNpm") {
-    dependsOn(tasks.npmInstall)
-    workingDir.set(file(webClientPath))
-    npmCommand.set(listOf("run", "build"))
+    val copyFiles = tasks.register<Copy>("${prefix}CopyFiles") {
+        dependsOn(compileWebClient)
+        from("${path}/dist")
+        into(destinationPath)
+    }
+
+    tasks.processResources {
+        dependsOn(copyFiles)
+    }
 }
 
-val installFrontendDependencies = tasks.register<NpmTask>("installFrontendDependencies") {
-    workingDir.set(file(webClientPath))
-    args.set(listOf("install"))
-}
+buildClient("app","./web-client","./src/main/resources/static/app")
+buildClient("backoffice", "./web-client-backoffice", "./src/main/resources/static/backoffice")
 
-val compileWebClient = tasks.register<NpmTask>("compileWebClient") {
-    dependsOn(installFrontendDependencies)
-    workingDir.set(file(webClientPath))
-    args.set(listOf("run", "build"))
-}
-
-val copyFiles = tasks.register<Copy>("copyFiles") {
-    dependsOn(compileWebClient)
-    from("./web-client/dist")
-    into("./src/main/resources/static")
-}
-
-val testFrontend = tasks.register<NpmTask>("testFrontend") {
-    dependsOn("compileWebClient")
-    workingDir.set(file(webClientPath))
-    args.set(listOf("test"))
-}
-
-tasks.processResources {
-    dependsOn(copyFiles)
-}
-
-tasks.test {
-    dependsOn(testFrontend)
-}

@@ -1,16 +1,29 @@
 package net.jsrois.api.controllers
 
-import net.jsrois.api.domain.Product
 import net.jsrois.api.repositories.ProductRepository
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
+import org.springframework.web.server.ResponseStatusException
+import java.util.*
+import kotlin.jvm.optionals.getOrNull
 
 @RestController
 @RequestMapping("/api/products")
 class ProductController(private val productRepository: ProductRepository) {
     @GetMapping
-    @CrossOrigin
     fun allproducts() = productRepository.findAll().map{ProductDTO.from(it)}
+
+    @GetMapping("/{id}")
+    fun productById(@PathVariable id: String): ProductDTO? {
+        val product = productRepository
+            .findById(UUID.fromString(id))
+            .getOrNull()
+
+        if (product == null) {
+            throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        }
+
+        return ProductDTO.from(product)
+
+    }
 }
