@@ -1,8 +1,5 @@
 <script>
-    // {"name":"iPhone 9",
-    // "price":549.0,
-    // "imageUrl":"https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-    // "description":"An apple mobile which is nothing like apple","id":"cbc57fea-b5c9-48b2-a65b-41ff6a946ced"}
+
     export let info;
 </script>
 <div>
