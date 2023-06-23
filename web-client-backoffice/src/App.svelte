@@ -1,17 +1,28 @@
 <script>
-
-    import ListCard from "./lib/components/ListCard.svelte";
     import {onMount} from "svelte";
     import Product from "./lib/components/Product.svelte";
     import Header from "./lib/components/Header.svelte";
 
     let productos = [];
 
-    onMount(() => {
+    function cargarProductos() {
         fetch("http://localhost:8080/api/products")
             .then(response => response.json())
             .then(datos => productos = datos)
-    })
+    }
+
+    onMount(cargarProductos);
+
+    let deleteProduct = (id) => {
+
+        fetch(`/api/products/${id}`, {method: "DELETE"})
+            .then(response => {
+                if (response.ok) {
+                    console.log(`borrado producto ${id}`);
+                }
+            })
+            .then(cargarProductos)
+    }
 
 </script>
 
@@ -19,9 +30,10 @@
     <Header/>
     <div>
         {#each productos as producto}
-            <Product info={producto}/>
+            <Product info={producto} onDelete={deleteProduct}/>
         {/each}
     </div>
+
 </main>
 
 <style>

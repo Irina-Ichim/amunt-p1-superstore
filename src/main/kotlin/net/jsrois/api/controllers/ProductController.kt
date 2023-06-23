@@ -24,7 +24,21 @@ class ProductController(private val productRepository: ProductRepository) {
             throw ResponseStatusException(HttpStatus.NOT_FOUND)
         }
 
-        return ProductDTO.from(product)
 
+        return ProductDTO.from(product)
+    }
+
+    @DeleteMapping("/{id}")
+    fun deleteProductById(@PathVariable id: String): ProductDTO? {
+        val product = productRepository
+            .findById(UUID.fromString(id))
+            .getOrNull()
+
+        if (product == null) {
+            throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        }
+        productRepository.delete(product)
+
+        return ProductDTO.from(product)
     }
 }

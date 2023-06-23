@@ -1,4 +1,4 @@
--- customers
+ -- customers
 do '
     declare
         shipping_id uuid = gen_random_uuid();
