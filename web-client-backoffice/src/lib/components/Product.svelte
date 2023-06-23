@@ -12,6 +12,9 @@
     <section>
         <p>{info.description}</p>
     </section>
+
+        <button><strong>Eliminar</strong></button>
+
 </div>
 
 <style>
@@ -49,6 +52,17 @@
     section {
         width: 540px;
         height: 100px;
+        color: white;
+
+    }
+    button {
+        width: 200px;
+        height: 50px;
+        margin-left: 100px;
+        border-radius: 10px;
+        font-size: larger;
+        color: white;
+        background-color: #0B3333;
 
     }
 
