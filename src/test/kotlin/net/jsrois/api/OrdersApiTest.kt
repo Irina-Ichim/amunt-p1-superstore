@@ -71,8 +71,8 @@ class OrdersApiTest {
                 country = "Spain"
         )
 
-        val product1 = productRepository.save(Product(name = "IPhone 9", price = 799.99, imageUrl = "http://example.com/image.png", id = UUID.randomUUID()))
-        val product2 = productRepository.save(Product(name = "Toalla de playa", price = 13.99, imageUrl = "http://example.com/image.png", id = UUID.randomUUID()))
+        val product1 = productRepository.save(Product(name = "IPhone 9", price = 799.99, imageUrl = "http://example.com/image.png", descriptionText = "", id = UUID.randomUUID()))
+        val product2 = productRepository.save(Product(name = "Toalla de playa", price = 13.99, imageUrl = "http://example.com/image.png", descriptionText = "", id = UUID.randomUUID()))
 
         api.postForEntity("/api/customers/${customer.id}/orders",
                 newOrder, OrderDto::class.java).let {
