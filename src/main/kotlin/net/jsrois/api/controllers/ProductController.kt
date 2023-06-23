@@ -1,14 +1,24 @@
 package net.jsrois.api.controllers
 
-import net.jsrois.api.domain.Product
 import net.jsrois.api.repositories.ProductRepository
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+
+
+
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping
 class ProductController(private val productRepository: ProductRepository) {
-    @GetMapping
-    fun allproducts() = productRepository.findAll().map{ProductDTO.from(it)}
+
+    @GetMapping("/api/products")
+    fun allproducts(@RequestParam search: String?): List<ProductDTO> {
+        if (!search.isNullOrBlank()) {
+            val filteredProducts = productRepository.findByNameContainingIgnoreCase(search)
+            return filteredProducts.map { ProductDTO.from(it) }
+        }
+        return productRepository.findAll().map { ProductDTO.from(it) }
+    }
+
+
+
 }

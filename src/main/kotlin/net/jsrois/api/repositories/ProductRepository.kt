@@ -6,4 +6,9 @@ import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-interface ProductRepository : JpaRepository<Product, UUID>
+interface ProductRepository : JpaRepository<Product, UUID> {
+    fun findByNameContainingIgnoreCase(word: String): List<Product>
+    }
+
+    // un mtodo que me devuelva solo los productos cuyo nombre contiene "palabra"
+

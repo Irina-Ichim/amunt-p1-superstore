@@ -4,17 +4,23 @@
     import {loggedIn} from "../../store/session.js";
     import {cartSize} from "../../store/cart.js";
     import Message from "./Message.svelte";
+    import {onMount} from "svelte";
+    import {products} from "../../store/products.js";
+
     const location = useLocation();
     $: message = $location.state && $location.state.message
     let searchQuery = '';
 
-    function handleSearch(event) {
-        if(event.key==='Enter' && searchQuery!==""){
-            console.log("GET /api/products?search="+ searchQuery)
+    async function handleSearch(event) {
+        if (event.key === 'Enter' && searchQuery !== '') {
+            const response = await fetch('/api/products?search=' + searchQuery);
+            if (response.ok) {
+                let productosEncontrados = await response.json();
+                products.update(_ => productosEncontrados);
+            } else {
+                console.error('Error:', response.status);
+            }
         }
-
-
-
     }
 </script>
 
@@ -54,7 +60,6 @@
 {/if}
 
 
-
 <style>
 
 
@@ -89,23 +94,23 @@
 
     }
 
-        header {
-            background-color: aliceblue;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-        }
+    header {
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+    }
 
-        a {
-            text-decoration: none;
-            padding: 0 10px;
-            cursor: pointer;
-            color: black;
-        }
+    a {
+        text-decoration: none;
+        padding: 0 10px;
+        cursor: pointer;
+        color: black;
+    }
 
-        a:hover {
-            font-weight: bold;
-        }
+    a:hover {
+        font-weight: bold;
+    }
 
 </style>
