@@ -1,6 +1,22 @@
 <script>
+    import {navigate} from "svelte-routing";
+
+    import {onMount} from 'svelte';
+
+    let showModal = false;
+
 
     export let info;
+    export let onDelete;
+
+    function handleModal() {
+        showModal = true;
+
+        navigate("/Modal")
+        alert('holaManu')
+    }
+
+
 </script>
 <div>
     <img src="{info.imageUrl}">
@@ -10,7 +26,7 @@
         <p>{info.description}</p>
     </section>
 
-        <button><strong>Eliminar</strong></button>
+    <button on:click={() => onDelete(info.id)}><strong>Eliminar</strong></button>
 
 </div>
 
@@ -52,6 +68,7 @@
         color: white;
 
     }
+
     button {
         width: 200px;
         height: 50px;
