@@ -8,6 +8,7 @@ import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/products")
 class ProductController(private val productRepository: ProductRepository) {
     @GetMapping
