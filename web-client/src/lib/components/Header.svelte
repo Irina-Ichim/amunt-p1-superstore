@@ -8,8 +8,11 @@
     $: message = $location.state && $location.state.message
     let searchQuery = '';
 
-    function handleSearch() {
-        console.log('Realizando búsqueda:', searchQuery);
+    function handleSearch(event) {
+        if(event.key==='Enter' && searchQuery!==""){
+            console.log("GET /api/products?search="+ searchQuery)
+        }
+
 
 
     }
