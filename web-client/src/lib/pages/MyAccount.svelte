@@ -18,8 +18,9 @@
     <section class="orders">
     {#await api.getOrders($currentUserId) then orders}
         {#each orders as order}
-            <Order {...order}/>
+            <Order {...order} />
         {/each}
+
     {/await}
     </section>
     <Button on:click={logout}>Salir</Button>
