@@ -1,6 +1,4 @@
 <script>
-
-    import ListCard from "./lib/components/ListCard.svelte";
     import {onMount} from "svelte";
     import Product from "./lib/components/Product.svelte";
     import Header from "./lib/components/Header.svelte";
@@ -22,6 +20,7 @@
             <Product info={producto}/>
         {/each}
     </div>
+
 </main>
 
 <style>

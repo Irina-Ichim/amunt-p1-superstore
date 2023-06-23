@@ -9,7 +9,7 @@
 </script>
 
 <style>
-    .modal-wrapper {
+    section {
         background-color: rgb(0, 0, 0, 0.6);
         position: fixed;
         width:100%;
@@ -18,7 +18,7 @@
         left:0;
     }
 
-    .modal{
+    div{
         background-color: white;
         max-width: 80vw;
         padding: 1rem;
@@ -28,10 +28,10 @@
 
     <main>
     {#if shown}
-        <div class="modal-wrapper">
-            <div class="modal">
+        <section>
+            <div>
                 <slot />
             </div>
-        </div>
+        </section>
     {/if}
    </main>
