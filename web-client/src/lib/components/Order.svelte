@@ -6,11 +6,11 @@
     export let address;
     export let city;
     export let country;
-
-
     export let products = [];
 
     let productsData = []
+
+
 
     onMount(() => {
         Promise.all(
@@ -22,6 +22,7 @@
         })
             .then(_ => console.log(productsData))
     })
+
 
 </script>
 
@@ -58,12 +59,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">Total</td>
-                    <td>Cart Size</td>
-                    <td> Total cost €</td>
+                    <td colspan="3">Total</td>
+                    <td>{productsData.map( p => p.price).reduce((s, p) => s + p, 0)}€</td>
                 </tr>
                 </tbody>
             </table>
+            </div>
     </section>
 </article>
 
@@ -92,6 +93,7 @@
         flex-direction: row;
         justify-content: space-between;
         background: #e3e6e6;
+
     }
 
 
