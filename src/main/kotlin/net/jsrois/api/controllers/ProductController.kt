@@ -8,11 +8,17 @@ import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
 @RestController
-@CrossOrigin
-@RequestMapping("/api/products")
+@RequestMapping
 class ProductController(private val productRepository: ProductRepository) {
-    @GetMapping
-    fun allproducts() = productRepository.findAll().map{ProductDTO.from(it)}
+
+    @GetMapping("/api/products")
+    fun allproducts(@RequestParam search: String?): List<ProductDTO> {
+        if (!search.isNullOrBlank()) {
+            val filteredProducts = productRepository.findByNameContainingIgnoreCase(search)
+            return filteredProducts.map { ProductDTO.from(it) }
+        }
+        return productRepository.findAll().map { ProductDTO.from(it) }
+    }
 
     @GetMapping("/{id}")
     fun productById(@PathVariable id: String): ProductDTO? {
