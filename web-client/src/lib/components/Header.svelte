@@ -4,7 +4,6 @@
     import {loggedIn} from "../../store/session.js";
     import {cartSize} from "../../store/cart.js";
     import Message from "./Message.svelte";
-    import {onMount} from "svelte";
     import {products} from "../../store/products.js";
 
     const location = useLocation();
@@ -44,7 +43,6 @@
     </div>
 
     <nav>
-
         <a href="/">Ofertas</a>
         <a href="/">Catálogo</a>
         {#if !$loggedIn}
@@ -59,10 +57,7 @@
     <Message>{message}</Message>
 {/if}
 
-
 <style>
-
-
     .search-input {
         position: relative;
         display: flex;
@@ -74,7 +69,6 @@
         border-radius: 10px;
         width: 173px;
         left: 245px;
-
     }
 
     .search-input svg {
@@ -84,14 +78,12 @@
         cursor: pointer;
     }
 
-
     .search-input input {
 
         position: relative;
         border: none;
         outline: none;
         left: 14px;
-
     }
 
     header {
@@ -112,5 +104,4 @@
     a:hover {
         font-weight: bold;
     }
-
 </style>

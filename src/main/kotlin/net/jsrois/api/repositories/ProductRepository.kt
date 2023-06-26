@@ -3,12 +3,11 @@ package net.jsrois.api.repositories
 import net.jsrois.api.domain.Product
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
-import java.util.UUID
+import java.util.*
 
 @Repository
 interface ProductRepository : JpaRepository<Product, UUID> {
     fun findByNameContainingIgnoreCase(word: String): List<Product>
-    }
+}
 
-    // un mtodo que me devuelva solo los productos cuyo nombre contiene "palabra"
 

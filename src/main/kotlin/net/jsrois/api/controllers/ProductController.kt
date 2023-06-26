@@ -4,8 +4,6 @@ import net.jsrois.api.repositories.ProductRepository
 import org.springframework.web.bind.annotation.*
 
 
-
-
 @RestController
 @RequestMapping
 class ProductController(private val productRepository: ProductRepository) {
@@ -18,7 +16,4 @@ class ProductController(private val productRepository: ProductRepository) {
         }
         return productRepository.findAll().map { ProductDTO.from(it) }
     }
-
-
-
 }
