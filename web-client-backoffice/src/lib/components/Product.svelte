@@ -1,21 +1,7 @@
 <script>
-    import {navigate} from "svelte-routing";
-
-    import {onMount} from 'svelte';
-
-    let showModal = false;
-
 
     export let info;
     export let onDelete;
-
-    function handleModal() {
-        showModal = true;
-
-        navigate("/Modal")
-        alert('holaManu')
-    }
-
 
 </script>
 <div>
