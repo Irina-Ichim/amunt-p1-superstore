@@ -13,21 +13,34 @@
 </script>
 <main>
     <h1>Bienvenido {$currentUserName}</h1>
-
     <h2>Tus pedidos</h2>
     <section class="orders">
     {#await api.getOrders($currentUserId) then orders}
         {#each orders as order}
-            <Order {...order}/>
+            <Order {...order} />
         {/each}
     {/await}
     </section>
+<div class="btn">
     <Button on:click={logout}>Salir</Button>
+</div>
+
 </main>
 
 <style>
     main {
-        max-width: 500px;
+        max-width: 900px;
         margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    h1{
+        text-align: center;
     }
 </style>
