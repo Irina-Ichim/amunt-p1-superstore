@@ -9,7 +9,6 @@ import java.util.*
 interface ProductRepository : JpaRepository<Product, UUID> {
     fun findByNameContainingIgnoreCase(word: String): List<Product>
     fun findByDiscountPriceNotNull(): List<Product>
-
 }
 
 

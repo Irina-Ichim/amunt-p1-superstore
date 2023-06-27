@@ -29,29 +29,14 @@ class ProductController(private val productRepository: ProductRepository) {
         if (product == null) {
             throw ResponseStatusException(HttpStatus.NOT_FOUND)
         }
-
-
         return ProductDTO.from(product)
     }
 
-   /* @GetMapping("/{sale}")
-    fun productByDiscountPriceNotNull(@PathVariable discountPrice: Double?): ProductDTO? {
-        val product = productRepository
-            .findByDiscountPriceNotNull(ProductDTO.from(discountPrice : Double?))
-            .getOrNull()
-
-        if (product == null) {
-            throw ResponseStatusException(HttpStatus.NOT_FOUND)
-        }
-
-
-        return ProductDTO.from(product)
-    }*/
-   @GetMapping("/discounted")
-   fun discountedProducts(): List<ProductDTO> {
-       val discountedProducts = productRepository.findByDiscountPriceNotNull()
-       return discountedProducts.map { ProductDTO.from(it) }
-   }
+    @GetMapping("/discounted")
+    fun discountedProducts(): List<ProductDTO> {
+        val discountedProducts = productRepository.findByDiscountPriceNotNull()
+        return discountedProducts.map { ProductDTO.from(it) }
+    }
 
     @DeleteMapping("/{id}")
     fun deleteProductById(@PathVariable id: String): ProductDTO? {
