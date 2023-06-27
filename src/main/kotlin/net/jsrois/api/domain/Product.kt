@@ -10,6 +10,7 @@ import java.util.*
 class Product(
         var name: String,
         var price: Double,
+        var discountPrice: Double? = null,
         var imageUrl: String,
         var descriptionText: String,
         @OneToMany(mappedBy = "product")
