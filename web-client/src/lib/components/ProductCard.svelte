@@ -7,7 +7,7 @@
     export let price;
     export let imageUrl = missingProductImage;
     let handleClick = () => {
-        navigate(`/products/${id}`)
+        navigate(`/products/${id}`);
     }
 </script>
 

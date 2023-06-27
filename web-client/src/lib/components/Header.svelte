@@ -43,7 +43,7 @@
     </div>
 
     <nav>
-        <a href="/">Ofertas</a>
+        <a href="/ProductCard">Ofertas</a>
         <a href="/">Catálogo</a>
         {#if !$loggedIn}
             <a href="/login">Login</a>
