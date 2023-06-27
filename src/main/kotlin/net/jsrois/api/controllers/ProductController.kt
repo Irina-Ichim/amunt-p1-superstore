@@ -8,10 +8,10 @@ import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/products")
 class ProductController(private val productRepository: ProductRepository) {
 
-    @GetMapping("/api/products")
+    @GetMapping
     fun allproducts(@RequestParam search: String?): List<ProductDTO> {
         if (!search.isNullOrBlank()) {
             val filteredProducts = productRepository.findByNameContainingIgnoreCase(search)
