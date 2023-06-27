@@ -3,6 +3,7 @@ package net.jsrois.api.domain
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.*
 import net.jsrois.api.repositories.Customer
+import net.jsrois.api.repositories.OrderRepository
 import org.hibernate.annotations.CreationTimestamp
 import java.util.*
 
@@ -21,5 +22,7 @@ class Order(
         @OneToMany(mappedBy = "order")
         var purchases: List<Purchase>,
         @CreationTimestamp
-        var createdAt: Date? = null
+        var createdAt: Date? = null,
+        var orderStatus: OrderStatus = OrderStatus.PENDING
+
 )

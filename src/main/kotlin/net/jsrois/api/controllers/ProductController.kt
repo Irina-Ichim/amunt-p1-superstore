@@ -25,12 +25,9 @@ class ProductController(private val productRepository: ProductRepository) {
         val product = productRepository
             .findById(UUID.fromString(id))
             .getOrNull()
-
         if (product == null) {
             throw ResponseStatusException(HttpStatus.NOT_FOUND)
         }
-
-
         return ProductDTO.from(product)
     }
 
