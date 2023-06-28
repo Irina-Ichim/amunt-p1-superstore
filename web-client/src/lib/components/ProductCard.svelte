@@ -1,7 +1,6 @@
 <script>
     import missingProductImage from "../../assets/missingProductImage.png"
     import {navigate} from "svelte-routing";
-
     export let id;
     export let name;
     export let price;

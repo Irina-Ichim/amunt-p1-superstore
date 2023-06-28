@@ -11,6 +11,8 @@
     import Cart from "./lib/pages/Cart.svelte";
     import Checkout from "./lib/pages/Checkout.svelte";
     import MyAccount from "./lib/pages/MyAccount.svelte";
+    import Ofertas from "./lib/pages/Ofertas.svelte";
+
 
     let url = "/";
     let api = new ProductApi();
@@ -31,6 +33,9 @@
     </Route>
     <Route path="/cart">
         <Cart/>
+    </Route>
+    <Route path="/ofertas">
+        <Ofertas/>
     </Route>
     <Route path="/checkout" component={Checkout}/>
     <Route path="/my-account" component={MyAccount}/>
