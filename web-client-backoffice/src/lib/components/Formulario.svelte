@@ -1,22 +1,22 @@
-
 <script>
 
     export let info;
-    let name="";
-    let precio="";
-    let descripcion="";
-    let url="";
+    let precio = "";
+    let descripcion = "";
+    let url = "";
+    let nombre = "";
 
 
     let error = false;
 
     function validar() {
-        if (info.name === "manu" ) {
+        if (info.name === "manu") {
             alert("lo pilla")
         } else {
-            error=true;
+            error = true;
         }
     }
+
 </script>
 <div>
     <h1>CREAR PRODUCTOS</h1>
@@ -26,29 +26,33 @@
         <input type="number" bind:value={precio} required placeholder="PRECIO DEL PRODUCTO"/>
         <input type="text" bind:value={url} required placeholder="RUTA DE LA IMAGEN"/>
         <input type="text" bind:value={descripcion} required placeholder="DESCRIPCIÓN DEL PRODUCTO"/>
-        <input type="text" bind:value={name} required placeholder="NOMBRE DEL PRODUCTO"/>
+        <input type="text" bind:value={nombre} required placeholder="NOMBRE DEL PRODUCTO"/>
         {#if error}
             <p>datos incorrectos</p>
         {/if}
-        <button type="submit">Enviar</button>
+        <section>
+            <button type="submit">Añadir</button>
+            <button>Cancelar</button>
+        </section>
     </form>
 </div>
+
 
 <style>
 
     div {
-        max-width: 100%;
-        height:100vh;
-
-        border: 1px solid black;
+        width: 100%;
+        height: 50vh;
         display: flex;
         flex-direction: column;
+
     }
 
 
     h1 {
 
         text-align: center;
+        margin-bottom: 80px;
     }
 
 
@@ -56,28 +60,34 @@
         width: 200px;
 
         border-radius: 7px;
-        background-color: #18a0fb;
-        color: white;
-
+        color: black;
+        margin-top: 30px;
         text-align: center;
     }
 
     input {
         width: 500px;
-
-
         border-radius: 3px;
 
     }
 
     form {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
+        gap: 5px;
 
     }
-    p{
+
+    p {
         color: red;
     }
+
+    section {
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+    }
+
 
 </style>
