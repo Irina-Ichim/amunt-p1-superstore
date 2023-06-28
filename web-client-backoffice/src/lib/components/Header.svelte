@@ -8,8 +8,8 @@
 <div>
 
 
-        <button><Link to="/new">New Product</Link></button>
-       <h1> <Link to="/">products</Link></h1>
+        <button ><Link style={"color: white; text-decoration: none"} to="/new">New Product</Link></button>
+         <Link style={"color: white; text-decoration: none"} to="/">products</Link>
 
 
 </div>
@@ -18,12 +18,6 @@
 
 <style>
 
-    h1 {
-        color: white;
-
-    }
-
-
     div {
         height: 50px;
         display: flex;
@@ -31,7 +25,6 @@
         background-color: darkgrey;
         padding: 35px;
         align-items: center;
-        list-style: none;
 
     }
 
@@ -43,11 +36,11 @@
         border-radius: 10px;
         font-size: 15px;
         margin-right: 100px;
-        background: red;
-        color:white;
+        background: lightgray;
+
+
 
     }
-
 
 
 
