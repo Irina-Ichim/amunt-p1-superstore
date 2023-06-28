@@ -1,9 +1,16 @@
+
 <script>
+
+    import {Link} from "svelte-routing";
 
 
 </script>
 <div>
-    <span>products</span>
+
+
+    <button><Link to="/new">Añadir Productos</Link> </button>
+    <Link to="/">Productos</Link>
+
 </div>
 
 
@@ -18,7 +25,21 @@
         display: flex;
         justify-content: end;
         background-color: darkgrey;
-        align-items: center;
-        padding: 30px
+        padding: 35px;
     }
+
+    button{
+
+
+        width: 280px;
+        height: 60px;
+        margin-left: 100px;
+        border-radius: 10px;
+        font-size: larger;
+        color: white;
+        background-color: skyblue;
+        margin-right: 80px;
+    }
+
+
 </style>
