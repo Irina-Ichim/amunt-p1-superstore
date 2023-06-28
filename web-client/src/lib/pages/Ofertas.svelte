@@ -17,7 +17,7 @@
 
 <h1>Ofertas</h1>
 
-{#if discountPrice.length > 0}
+{#if discountPrice.length > null}
     {#each discountPrice as producto}
         <div>
             <h3>{producto.name}</h3>

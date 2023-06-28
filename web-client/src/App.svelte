@@ -41,3 +41,4 @@
     <Route path="/my-account" component={MyAccount}/>
     <Footer/>
 </Router>
+

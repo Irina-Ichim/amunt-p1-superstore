@@ -4,6 +4,9 @@
     export let id;
     export let name;
     export let price;
+
+    export let discountPrice;
+
     export let imageUrl = missingProductImage;
     let handleClick = () => {
         navigate(`/products/${id}`);
@@ -15,6 +18,7 @@
     <div>
         <p>{name}</p>
         <p>{price}€</p>
+        <p>{discountPrice}€</p>
     </div>
 </article>
 
