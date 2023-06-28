@@ -1,4 +1,4 @@
-<script>
+<script xmlns="http://www.w3.org/1999/html">
 
     export let info;
     let precio = "";
@@ -22,11 +22,25 @@
     <h1>CREAR PRODUCTOS</h1>
     <form on:submit|preventDefault={validar}>
 
+       <label>
+           <p>Nombre:</p>
+           <input type="text" bind:value={nombre} required />
+       </label>
+        <label>
+            <p>Precio:</p>
+            <input type="number" bind:value={precio} required />
+        </label>
+        <label>
+            <p>Descripción:</p>
+            <textarea type="text" bind:value={descripcion} required></textarea>
+        </label>
+        <label>
+            <p>Imagen Url:</p>
+            <input type="text" bind:value={url} required />
+        </label>
 
-        <input type="number" bind:value={precio} required placeholder="PRECIO DEL PRODUCTO"/>
-        <input type="text" bind:value={url} required placeholder="RUTA DE LA IMAGEN"/>
-        <input type="text" bind:value={descripcion} required placeholder="DESCRIPCIÓN DEL PRODUCTO"/>
-        <input type="text" bind:value={nombre} required placeholder="NOMBRE DEL PRODUCTO"/>
+
+
         {#if error}
             <p>datos incorrectos</p>
         {/if}
@@ -52,7 +66,7 @@
     h1 {
 
         text-align: center;
-        margin-bottom: 80px;
+        margin-bottom: 50px;
     }
 
 
@@ -79,14 +93,16 @@
 
     }
 
-    p {
-        color: red;
-    }
+
 
     section {
         display: flex;
         justify-content: space-around;
         gap: 10px;
+    }
+    textarea{
+        width: 503px;
+        height: 106px;
     }
 
 
