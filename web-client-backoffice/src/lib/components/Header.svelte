@@ -8,17 +8,21 @@
 <div>
 
 
-    <button><Link to="/new">Añadir Productos</Link> </button>
-    <Link to="/">Productos</Link>
+        <button><Link to="/new">New Product</Link></button>
+       <h1> <Link to="/">products</Link></h1>
+
 
 </div>
+
 
 
 <style>
 
     h1 {
         color: white;
+
     }
+
 
     div {
         height: 50px;
@@ -26,20 +30,25 @@
         justify-content: end;
         background-color: darkgrey;
         padding: 35px;
+        align-items: center;
+        list-style: none;
+
     }
 
     button{
 
-
-        width: 280px;
-        height: 60px;
+        width: 100px;
+        height: 50px;
         margin-left: 100px;
         border-radius: 10px;
-        font-size: larger;
-        color: white;
-        background-color: skyblue;
-        margin-right: 80px;
+        font-size: 15px;
+        margin-right: 100px;
+        background: red;
+        color:white;
+
     }
+
+
 
 
 </style>
