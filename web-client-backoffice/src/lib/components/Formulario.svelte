@@ -6,7 +6,9 @@
     let url = "";
     let nombre = "";
 
-
+    function cancelar() {
+        location.reload();
+    }
     let error = false;
 
     function validar() {
@@ -46,7 +48,7 @@
         {/if}
         <section>
             <button type="submit">Añadir</button>
-            <button>Cancelar</button>
+            <button type="button" on:click={cancelar}>Cancelar</button>
         </section>
     </form>
 </div>
