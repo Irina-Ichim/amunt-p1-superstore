@@ -1,4 +1,3 @@
-
 <script>
 
     import {Link} from "svelte-routing";
@@ -8,12 +7,11 @@
 <div>
 
 
-        <Link style={"color: white; text-decoration: none"} to="/admin/new">New Product</Link>
-         <Link style={"color: white; text-decoration: none"} to="/">products</Link>
+    <Link style={"color: white; text-decoration: none;"} to="/admin/new">New Product</Link>
+    <Link style={"color: white; text-decoration: none"} to="/">products</Link>
 
 
 </div>
-
 
 
 <style>
@@ -24,24 +22,10 @@
         justify-content: end;
         background-color: darkgrey;
         padding: 35px;
+        gap: 20px;
         align-items: center;
 
     }
-
-    button{
-
-        width: 100px;
-        height: 50px;
-        margin-left: 100px;
-        border-radius: 10px;
-        font-size: 15px;
-        margin-right: 100px;
-        background: lightgray;
-
-
-
-    }
-
 
 
 </style>
