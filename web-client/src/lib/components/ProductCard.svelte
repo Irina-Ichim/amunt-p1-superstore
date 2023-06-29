@@ -5,15 +5,12 @@
     export let id;
     export let name;
     export let price;
-
     export let discountPrice;
-
     export let imageUrl = missingProductImage;
     let handleClick = () => {
         navigate(`/products/${id}`);
     }
 </script>
-
 
 <article on:click={handleClick}>
     {#if discountPrice}
@@ -23,12 +20,11 @@
     <div>
         <p>{name}</p>
         {#if discountPrice}
-            <span><del>{price}€</del>{discountPrice}€</span>
+            <span><del>{price}€<br></del>{discountPrice}€</span>
         {:else}
             <span>{price}€</span>
         {/if}
     </div>
-
 
 </article>
 
