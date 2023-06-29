@@ -1,9 +1,20 @@
+
+
 <script>
+    import {Router, Route} from "svelte-routing";
     import {onMount} from "svelte";
     import Product from "./lib/components/Product.svelte";
     import Header from "./lib/components/Header.svelte";
+    import Formulario from "./lib/components/Formulario.svelte";
 
     let productos = [];
+
+
+    onMount(() => {
+        fetch("http://localhost:8080/api/products")
+            .then(response => response.json())
+            .then(datos => productos = datos)
+    })
 
     function cargarProductos() {
         fetch("http://localhost:8080/api/products")
@@ -24,15 +35,32 @@
             .then(cargarProductos)
     }
 
+    let dev = process.env.NODE_ENV === "development"
+
+    let path = dev ? "/" : "/admin"
+
 </script>
 
 <main>
-    <Header/>
-    <div>
-        {#each productos as producto}
-            <Product info={producto} onDelete={deleteProduct}/>
-        {/each}
-    </div>
+
+    <Router basepath={path}>
+        <Header/>
+
+        <Route path="/">
+            <div>
+                {#each productos as producto}
+                    <Product info={producto} onDelete={deleteProduct}/>
+                {/each}
+
+            </div>
+        </Route>
+        <Route path="/new">
+            <Formulario />
+        </Route>
+
+
+    </Router>
+
 
 </main>
 
