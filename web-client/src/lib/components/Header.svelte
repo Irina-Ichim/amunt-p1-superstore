@@ -21,6 +21,16 @@
             }
         }
     }
+
+    async function muestraOfertas() {
+        const response = await fetch('/api/products/discounted');
+        if (response.ok) {
+            let productosEnOferta = await response.json();
+            products.update(_ => productosEnOferta);
+        } else {
+            console.error('Error:', response.status);
+        }
+    }
 </script>
 
 <header use:links>
@@ -43,7 +53,7 @@
     </div>
 
     <nav>
-        <a href="/">Ofertas</a>
+        <span on:click={muestraOfertas}>Ofertas</span>
         <a href="/">Catálogo</a>
         {#if !$loggedIn}
             <a href="/login">Login</a>

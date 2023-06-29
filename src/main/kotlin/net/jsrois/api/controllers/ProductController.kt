@@ -27,12 +27,9 @@ class ProductController(private val productRepository: ProductRepository) {
         val product = productRepository
             .findById(UUID.fromString(id))
             .getOrNull()
-
         if (product == null) {
             throw ResponseStatusException(HttpStatus.NOT_FOUND)
         }
-
-
         return ProductDTO.from(product)
     }
     @PostMapping
@@ -51,6 +48,12 @@ class ProductController(private val productRepository: ProductRepository) {
     }
 
 
+
+    @GetMapping("/discounted")
+    fun discountedProducts(): List<ProductDTO> {
+        val discountedProducts = productRepository.findByDiscountPriceNotNull()
+        return discountedProducts.map { ProductDTO.from(it) }
+    }
 
     @DeleteMapping("/{id}")
     fun deleteProductById(@PathVariable id: String): ProductDTO? {

@@ -61,8 +61,19 @@ class OrderController(
         return order.toOrderDto()
     }
 
+    @PatchMapping ("/api/orders/{id}")
+    fun updateStatus(@RequestBody request:OrderStatusChangeRequest, @PathVariable id: String): OrderDto {
+        val order=orderRepository.findById(UUID.fromString(id)).getOrNull()
+        if (order == null) {
+            throw ResponseStatusException(NOT_FOUND)
+        }
+        order.orderStatus=request.status
+        return orderRepository.save(order).toOrderDto()
+    }
+
+
 }
 
 private fun Order.toOrderDto(): OrderDto {
-    return OrderDto(id, address, city, country, postalCode, purchases.map { it.product.id })
+    return OrderDto(id, address, city, country, postalCode, purchases.map { it.product.id }, orderStatus.toString())
 }

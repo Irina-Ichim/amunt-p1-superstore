@@ -44,4 +44,7 @@ values ('iPhone 9', 549, 'https://i.dummyjson.com/data/products/1/thumbnail.jpg'
        ('3D Embellishment Art Lamp', 20, 'https://i.dummyjson.com/data/products/28/thumbnail.jpg', '3D led lamp sticker Wall sticker 3d wall art light on', gen_random_uuid()),
        ('Handcraft Chinese style', 60, 'https://i.dummyjson.com/data/products/29/thumbnail.webp', 'Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate', gen_random_uuid()),
        ('Key Holder', 30, 'https://i.dummyjson.com/data/products/30/thumbnail.jpg', 'Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality', gen_random_uuid());
-
+ insert into products (name, price, discount_price, image_url, description_text, id)
+ values ('iPhone 9', 549, 400, 'https://i.dummyjson.com/data/products/1/thumbnail.jpg', 'An apple mobile which is nothing like apple', gen_random_uuid()),
+        ('iPhone X', 899, 700, 'https://i.dummyjson.com/data/products/2/thumbnail.jpg', 'SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...', gen_random_uuid()),
+        ('Samsung Universe 9', 1249, 1000, 'https://i.dummyjson.com/data/products/3/thumbnail.jpg', 'Samsung new variant which goes beyond Galaxy to the Universe', gen_random_uuid());

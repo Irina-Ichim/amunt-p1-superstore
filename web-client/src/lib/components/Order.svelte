@@ -1,6 +1,9 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 <script>
     import OrderStatusBadge from "./OrderStatusBadge.svelte";
     import {onMount} from "svelte";
+    import Modal from "./Modal.svelte";
 
     export let id;
     export let address;
@@ -8,9 +11,11 @@
     export let country;
     export let products = [];
 
+    export let orderStatus;
+
+    export let onCancel;
+
     let productsData = []
-
-
 
     onMount(() => {
         Promise.all(
@@ -23,16 +28,15 @@
             .then(_ => console.log(productsData))
     })
 
-
 </script>
 
 <article>
     <section>
         <div class="pedido-envio">
-        <h4>Pedido {id.slice(0, 6)}
-            <OrderStatusBadge></OrderStatusBadge>
-        </h4>
-        <p>Envío: {address} - {city} ({country})</p>
+                <p>Envío: {address} - {city} ({country})</p>
+                <p>Pedido: {id.slice(0, 6)}</p>
+            <OrderStatusBadge {orderStatus} />
+            <button on:click={() => onCancel(id)}><span class="material-symbols-outlined">cancel</span></button>
         </div>
         <div>
             <table>
@@ -89,12 +93,18 @@
     }
 
     .pedido-envio{
+        height: 80px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        align-items: center;
         background: #e3e6e6;
-
     }
 
-
+    .material-symbols-outlined{
+        font-size: 28px;
+        font-weight: revert;
+        cursor: pointer;
+        color: red;
+    }
 </style>
