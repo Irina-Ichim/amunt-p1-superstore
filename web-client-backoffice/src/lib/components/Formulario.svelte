@@ -1,37 +1,56 @@
-<script xmlns="http://www.w3.org/1999/html">
-import {navigate} from "svelte-routing";
-    export let info;
+<script>
+
+
+    import {navigate} from "svelte-routing";
+let productos="";
+    let error;
+    let nombre = "";
     let precio = "";
     let descripcion = "";
     let url = "";
-    let nombre = "";
+    let id = "";
 
     function cancelar() {
         navigate("/admin");
     }
-    let error = false;
 
-    function validar() {
-        if (nombre === "manu") {
-            alert("lo pilla")
-        }
-        else {
-            error = true;
-        }
+
+    function crearID() {
+        return crypto.randomUUID()
     }
 
+    function crearProducto() {
+
+        let info = {
+            name: nombre,
+            price: precio,
+            description: descripcion,
+            imageUrl: url,
+            id: crearID()
+        }
+
+        fetch("/api/products", {method: "POST", body: JSON.stringify(info)})
+            .then(response => response.json())
+            .then(datos => productos = datos)
+
+        alert("producto añadido")
+    }
+
+
+
 </script>
+
 <div>
     <h1>CREAR PRODUCTOS</h1>
-    <form on:submit|preventDefault={validar}>
+    <form on:submit|preventDefault={crearProducto}>
 
-       <label>
-           <p>Nombre:</p>
-           <input type="text" bind:value={nombre} required />
-       </label>
+        <label>
+            <p>Nombre:</p>
+            <input type="text" bind:value={nombre} required/>
+        </label>
         <label>
             <p>Precio:</p>
-            <input type="number" bind:value={precio} required />
+            <input type="number" bind:value={precio} required/>
         </label>
         <label>
             <p>Descripción:</p>
@@ -39,7 +58,7 @@ import {navigate} from "svelte-routing";
         </label>
         <label>
             <p>Imagen Url:</p>
-            <input type="text" bind:value={url} required />
+            <input type="text" bind:value={url} required/>
         </label>
 
         {#if error}
@@ -65,6 +84,7 @@ import {navigate} from "svelte-routing";
         text-align: center;
         margin-bottom: 50px;
     }
+
     button {
         width: 200px;
 
@@ -94,7 +114,8 @@ import {navigate} from "svelte-routing";
         justify-content: space-around;
         gap: 10px;
     }
-    textarea{
+
+    textarea {
         width: 503px;
         height: 106px;
     }
