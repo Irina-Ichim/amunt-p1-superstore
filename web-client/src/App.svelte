@@ -20,23 +20,9 @@
         api.getAllProducts()
             .then(data => products.update(_ => data))
             .catch(errorMsg => console.log(`Something wrong ${errorMsg}`))
-
-
-        let fetchDiscountedProducts;
-
-
-        let products = [];
-        onMount(fetchDiscountedProducts);
-
-    });
-
-
-
-
-
-
+    })
 </script>
-<button on:click={fetchDiscountedProducts}>Ofertas</button>
+
 <Router {url}>
     <Header/>
     <Route path="/login" component={LoginPage}/>
