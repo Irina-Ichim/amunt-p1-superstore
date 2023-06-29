@@ -19,6 +19,8 @@
         api.getAllProducts()
             .then(data => products.update(_ => data))
             .catch(errorMsg => console.log(`Something wrong ${errorMsg}`))
+
+
     });
 </script>
 
@@ -36,3 +38,4 @@
     <Route path="/my-account" component={MyAccount}/>
     <Footer/>
 </Router>
+

@@ -23,6 +23,7 @@
     <section>
         <h1>{productInfo.name}</h1>
         <h2>{productInfo.price}€</h2>
+        <h2>{productInfo.discountPrice}€</h2>
         <p>{productInfo.description}</p>
         <Button on:click={addProductToCart} orange>Añadir a la cesta</Button>
         <Button on:click={goBack}>Volver al catálogo</Button>

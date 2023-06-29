@@ -8,6 +8,7 @@ import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/products")
 class ProductController(private val productRepository: ProductRepository) {
 
@@ -29,6 +30,12 @@ class ProductController(private val productRepository: ProductRepository) {
             throw ResponseStatusException(HttpStatus.NOT_FOUND)
         }
         return ProductDTO.from(product)
+    }
+
+    @GetMapping("/discounted")
+    fun discountedProducts(): List<ProductDTO> {
+        val discountedProducts = productRepository.findByDiscountPriceNotNull()
+        return discountedProducts.map { ProductDTO.from(it) }
     }
 
     @DeleteMapping("/{id}")

@@ -10,13 +10,14 @@ import java.util.UUID
 data class ProductDTO(
         var name: String,
         var price: Double,
+        var discountPrice: Double? = null,
         var imageUrl: String,
         var description: String,
         var id: UUID
 ) {
     companion object {
         fun from(product: Product) = with(product) {
-            ProductDTO(name, price, imageUrl, descriptionText, id)
+            ProductDTO(name, price, discountPrice, imageUrl, descriptionText, id)
         }
     }
 }
