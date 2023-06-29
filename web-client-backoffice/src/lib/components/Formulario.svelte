@@ -12,9 +12,10 @@ import {navigate} from "svelte-routing";
     let error = false;
 
     function validar() {
-        if (info.name === "manu") {
+        if (nombre === "manu") {
             alert("lo pilla")
-        } else {
+        }
+        else {
             error = true;
         }
     }
@@ -41,8 +42,6 @@ import {navigate} from "svelte-routing";
             <input type="text" bind:value={url} required />
         </label>
 
-
-
         {#if error}
             <p>datos incorrectos</p>
         {/if}
@@ -53,7 +52,6 @@ import {navigate} from "svelte-routing";
     </form>
 </div>
 
-
 <style>
 
     div {
@@ -61,17 +59,12 @@ import {navigate} from "svelte-routing";
         height: 50vh;
         display: flex;
         flex-direction: column;
-
     }
 
-
     h1 {
-
         text-align: center;
         margin-bottom: 50px;
     }
-
-
     button {
         width: 200px;
 
@@ -94,7 +87,6 @@ import {navigate} from "svelte-routing";
         gap: 5px;
 
     }
-
 
 
     section {
