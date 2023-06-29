@@ -19,12 +19,10 @@
         api.getAllProducts()
             .then(data => products.update(_ => data))
             .catch(errorMsg => console.log(`Something wrong ${errorMsg}`))
-<<<<<<< HEAD
 
     });
-=======
-    })
->>>>>>> 964b70925115c51a9f19ce5ddcd0b56e1b6dbae0
+
+
 </script>
 
 <Router {url}>
