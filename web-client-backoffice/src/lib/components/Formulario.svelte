@@ -1,5 +1,5 @@
 <script xmlns="http://www.w3.org/1999/html">
-
+import {navigate} from "svelte-routing";
     export let info;
     let precio = "";
     let descripcion = "";
@@ -7,7 +7,7 @@
     let nombre = "";
 
     function cancelar() {
-        location.reload();
+        navigate("/admin");
     }
     let error = false;
 
