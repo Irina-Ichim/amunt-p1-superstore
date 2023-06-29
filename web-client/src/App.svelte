@@ -11,7 +11,6 @@
     import Cart from "./lib/pages/Cart.svelte";
     import Checkout from "./lib/pages/Checkout.svelte";
     import MyAccount from "./lib/pages/MyAccount.svelte";
-    import Ofertas from "./lib/pages/Ofertas.svelte";
 
 
     let url = "/";
@@ -21,9 +20,23 @@
         api.getAllProducts()
             .then(data => products.update(_ => data))
             .catch(errorMsg => console.log(`Something wrong ${errorMsg}`))
-    });
-</script>
 
+
+        let fetchDiscountedProducts;
+
+
+        let products = [];
+        onMount(fetchDiscountedProducts);
+
+    });
+
+
+
+
+
+
+</script>
+<button on:click={fetchDiscountedProducts}>Ofertas</button>
 <Router {url}>
     <Header/>
     <Route path="/login" component={LoginPage}/>
@@ -33,9 +46,6 @@
     </Route>
     <Route path="/cart">
         <Cart/>
-    </Route>
-    <Route path="/ofertas">
-        <Ofertas/>
     </Route>
     <Route path="/checkout" component={Checkout}/>
     <Route path="/my-account" component={MyAccount}/>

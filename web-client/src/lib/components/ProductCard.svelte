@@ -1,6 +1,7 @@
 <script>
     import missingProductImage from "../../assets/missingProductImage.png"
     import {navigate} from "svelte-routing";
+
     export let id;
     export let name;
     export let price;
@@ -11,7 +12,14 @@
     let handleClick = () => {
         navigate(`/products/${id}`);
     }
+
+
 </script>
+{#if discountPrice}
+    <del>{price}</del> {discountPrice}
+{:else}
+    {price}
+{/if}
 
 <article on:click={handleClick}>
     <img src={imageUrl} alt="product image"/>
