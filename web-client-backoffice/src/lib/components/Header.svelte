@@ -8,7 +8,7 @@
 <div>
 
 
-        <button ><Link style={"color: white; text-decoration: none"} to="/new">New Product</Link></button>
+        <Link style={"color: white; text-decoration: none"} to="/admin/new">New Product</Link>
          <Link style={"color: white; text-decoration: none"} to="/">products</Link>
 
 

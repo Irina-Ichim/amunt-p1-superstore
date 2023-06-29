@@ -77,12 +77,15 @@
             .then(cargarProductos)
     }
 
+    let dev = process.env.NODE_ENV === "development"
+
+    let path = dev ? "/" : "/admin"
 
 </script>
 
 <main>
 
-    <Router>
+    <Router basepath={path}>
         <Header/>
 
         <Route path="/">
