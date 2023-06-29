@@ -19,8 +19,9 @@
         api.getAllProducts()
             .then(data => products.update(_ => data))
             .catch(errorMsg => console.log(`Something wrong ${errorMsg}`))
-    });
 
+
+    });
 </script>
 
 <Router {url}>
