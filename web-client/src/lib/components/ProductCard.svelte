@@ -17,7 +17,7 @@
 
 <article on:click={handleClick}>
     {#if discountPrice}
-        <div>Ofertón</div>
+        <div class="oferton">Ofertón</div>
     {/if}
     <img src={imageUrl} alt="product image"/>
     <div>
@@ -60,6 +60,10 @@
 
     div {
         padding: 15px;
+    }
+
+    .oferton {
+        background-color: #54d754;
     }
 </style>
 
