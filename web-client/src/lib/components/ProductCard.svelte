@@ -16,17 +16,20 @@
 
 
 <article on:click={handleClick}>
+    {#if discountPrice}
+        <div>Ofertón</div>
+    {/if}
     <img src={imageUrl} alt="product image"/>
     <div>
         <p>{name}</p>
-        <p>{price}€</p>
+        {#if discountPrice}
+            <span><del>{price}€</del>{discountPrice}€</span>
+        {:else}
+            <span>{price}€</span>
+        {/if}
     </div>
 
-    {#if discountPrice}
-        <del>{price}</del> {discountPrice}
-    {:else}
-        {price}
-    {/if}
+
 </article>
 
 <style>
