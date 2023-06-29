@@ -2,13 +2,16 @@
 
     import {Link} from "svelte-routing";
 
+    import {dev} from "../../dev.js";
+
+    let path = dev ? "" : "/admin"
 
 </script>
 <div>
 
 
-    <Link style={"color: white; text-decoration: none;"} to="/admin/new">New Product</Link>
-    <Link style={"color: white; text-decoration: none"} to="/">products</Link>
+    <Link style={"color: white; text-decoration: none;"} to={path+"/new"}>New Product</Link>
+    <Link style={"color: white; text-decoration: none"} to={path+"/"}>products</Link>
 
 
 </div>

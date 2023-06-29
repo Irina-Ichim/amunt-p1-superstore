@@ -1,55 +1,42 @@
-<script xmlns="http://www.w3.org/1999/html">
-import {navigate} from "svelte-routing";
-    export let info;
-    let precio = "";
-    let descripcion = "";
-    let url = "";
-    let nombre = "";
+<script>
+    import {navigate} from "svelte-routing";
+
+    let info;
+    let error;
+
 
     function cancelar() {
         navigate("/admin");
     }
-    let error = false;
 
-    function validar() {
-        if (info.name === "manu") {
-            alert("lo pilla")
-        } else {
-            error = true;
-        }
+    function crearProducto() {
+        console.log(info);
     }
 
 </script>
 <div>
     <h1>CREAR PRODUCTOS</h1>
-    <form on:submit|preventDefault={validar}>
+    <form on:submit|preventDefault={crearProducto}>
 
-       <label>
-           <p>Nombre:</p>
-           <input type="text" bind:value={nombre} required />
-       </label>
-        <label>
-            <p>Precio:</p>
-            <input type="number" bind:value={precio} required />
-        </label>
-        <label>
-            <p>Descripción:</p>
-            <textarea type="text" bind:value={descripcion} required></textarea>
-        </label>
-        <label>
-            <p>Imagen Url:</p>
-            <input type="text" bind:value={url} required />
-        </label>
+        <label for="name">Name:</label>
+        <input id="name" type="text" bind:value={info.name}>
+        <label for="price">Price:</label>
+        <input id="price" type="text" bind:value={info.price}>
+<!--        <input type="number" bind:value={info.price} required/>-->
+
+<!--        <textarea bind:value={info.description} required></textarea>-->
+
+<!-git-        <p>Imagen Url:</p>-->
+<!--        <input type="text" bind:value={info.imageUrl} required/>-->
 
 
-
-        {#if error}
-            <p>datos incorrectos</p>
-        {/if}
-        <section>
-            <button type="submit">Añadir</button>
-            <button type="button" on:click={cancelar}>Cancelar</button>
-        </section>
+<!--        {#if error}-->
+<!--            <p>datos incorrectos</p>-->
+<!--        {/if}-->
+<!--        <section>-->
+<!--            <button type="submit">Añadir</button>-->
+<!--            <button type="button" on:click={cancelar}>Cancelar</button>-->
+<!--        </section>-->
     </form>
 </div>
 
@@ -96,13 +83,13 @@ import {navigate} from "svelte-routing";
     }
 
 
-
     section {
         display: flex;
         justify-content: space-around;
         gap: 10px;
     }
-    textarea{
+
+    textarea {
         width: 503px;
         height: 106px;
     }

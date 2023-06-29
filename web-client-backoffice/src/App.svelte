@@ -6,6 +6,7 @@
     import Product from "./lib/components/Product.svelte";
     import Header from "./lib/components/Header.svelte";
     import Formulario from "./lib/components/Formulario.svelte";
+    import {dev} from "./dev.js";
 
     let productos = [];
 
@@ -35,7 +36,6 @@
             .then(cargarProductos)
     }
 
-    let dev = process.env.NODE_ENV === "development"
 
     let path = dev ? "/" : "/admin"
 
