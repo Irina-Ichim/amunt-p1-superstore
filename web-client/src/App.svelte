@@ -12,7 +12,6 @@
     import Checkout from "./lib/pages/Checkout.svelte";
     import MyAccount from "./lib/pages/MyAccount.svelte";
 
-
     let url = "/";
     let api = new ProductApi();
 
@@ -21,22 +20,9 @@
             .then(data => products.update(_ => data))
             .catch(errorMsg => console.log(`Something wrong ${errorMsg}`))
 
-
-        let fetchDiscountedProducts;
-
-
-        let products = [];
-        onMount(fetchDiscountedProducts);
-
     });
-
-
-
-
-
-
 </script>
-<button on:click={fetchDiscountedProducts}>Ofertas</button>
+
 <Router {url}>
     <Header/>
     <Route path="/login" component={LoginPage}/>

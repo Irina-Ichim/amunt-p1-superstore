@@ -12,22 +12,21 @@
     let handleClick = () => {
         navigate(`/products/${id}`);
     }
-
-
 </script>
-{#if discountPrice}
-    <del>{price}</del> {discountPrice}
-{:else}
-    {price}
-{/if}
+
 
 <article on:click={handleClick}>
     <img src={imageUrl} alt="product image"/>
     <div>
         <p>{name}</p>
         <p>{price}€</p>
-        <p>{discountPrice}€</p>
     </div>
+
+    {#if discountPrice}
+        <del>{price}</del> {discountPrice}
+    {:else}
+        {price}
+    {/if}
 </article>
 
 <style>
