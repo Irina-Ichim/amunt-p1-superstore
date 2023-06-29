@@ -1,5 +1,6 @@
 package net.jsrois.api.controllers
 
+import net.jsrois.api.domain.Product
 import net.jsrois.api.repositories.ProductRepository
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -31,6 +32,22 @@ class ProductController(private val productRepository: ProductRepository) {
         }
         return ProductDTO.from(product)
     }
+    @PostMapping
+    fun createProduct(@RequestBody productDTO: ProductDTO): ProductDTO {
+        val product = Product(
+            name = productDTO.name,
+            price = productDTO.price,
+            imageUrl = productDTO.imageUrl,
+            descriptionText = productDTO.description,
+            id = productDTO.id
+        )
+
+        val createdProduct = productRepository.save(product)
+
+        return ProductDTO.from(createdProduct)
+    }
+
+
 
     @GetMapping("/discounted")
     fun discountedProducts(): List<ProductDTO> {

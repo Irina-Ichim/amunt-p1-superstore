@@ -38,7 +38,7 @@
         height: 100px;
     }
 
-    .p section {
+    .p .section {
         color: white;
         padding-bottom: 5px;
         align-items: center;
