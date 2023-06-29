@@ -9,6 +9,5 @@ data class ShippingInfoDTO(val id: UUID, val address: String, val city: String, 
             with(shippingInfo) {
                 ShippingInfoDTO(id, address, city, postalCode, country)
             }
-
     }
 }
