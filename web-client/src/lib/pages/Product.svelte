@@ -32,7 +32,7 @@
 
 <style>
     article {
-        padding: 5px;
+        padding: 35px;
         width: 100%;
         height: 80vh;
         display: flex;
@@ -40,10 +40,11 @@
 
     img {
         width: 40%;
-        object-fit: cover;
+        object-fit: fill;
     }
 
     section {
-        padding: 70px;
+        padding: 150px;
+
     }
 </style>

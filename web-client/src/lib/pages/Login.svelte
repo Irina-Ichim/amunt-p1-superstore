@@ -49,11 +49,15 @@
         display: flex;
         flex-direction: column;
     }
+    label{
+        color: #0B3333;
+    }
 
     input {
         max-width: 400px;
         height: 30px;
         margin-bottom: 20px;
+        color: #0B3333;
     }
 
     input[type="submit"] {

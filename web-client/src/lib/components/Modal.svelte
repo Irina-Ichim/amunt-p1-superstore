@@ -16,21 +16,19 @@
 
 <style>
     .modal {
-        width: 100%;
-        height: 100vh;
-
+        width: 30%;
+        height: 30vh;
+        margin-left: 20%;
         background-color: #353535;
         position: absolute;
-        top: 0;
-        left: 0;
-
+        top: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 40px;
+        padding: 20px;
         flex-direction: column;
         color: white;
-        font-size: 30px;
+        font-size: 20px;
         text-align: center;
     }
 </style>

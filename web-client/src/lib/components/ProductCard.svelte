@@ -14,7 +14,7 @@
 
 <article on:click={handleClick}>
     {#if discountPrice}
-        <div class="oferton">Ofertón</div>
+        <div class="oferta">Ofertón</div>
     {/if}
     <img src={imageUrl} alt="product image"/>
     <div>
@@ -38,9 +38,9 @@
         height: 300px;
         border-radius: 5px;
         cursor: pointer;
-        -webkit-box-shadow: -1px 1px 5px 0px #727171;
-        -moz-box-shadow: -1px 1px 5px 0px #727171FF;
-        box-shadow: -1px 1px 5px 0px #727171FF;
+        -webkit-box-shadow: -1px 1px 5px 0 #727171;
+        -moz-box-shadow: -1px 1px 5px 0 #727171FF;
+        box-shadow: -1px 1px 5px 0 #727171FF;
     }
 
     article:hover {
@@ -58,7 +58,7 @@
         padding: 15px;
     }
 
-    .oferton {
+    .oferta {
         background-color: #54d754;
     }
 </style>

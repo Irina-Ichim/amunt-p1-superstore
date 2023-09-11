@@ -11,9 +11,9 @@
         right: 0;
         font-size: large;
         width: 250px;
-        border: 1px solid #ffa500;
-        color: #ffa500;
-        background-color: #fff6bb;
+        border: 1px solid #0B3333;
+        color: white;
+        background-color: #0B3333;
         font-weight: bold;
         padding: 10px;
         text-align: center;

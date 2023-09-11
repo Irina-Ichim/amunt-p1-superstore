@@ -54,13 +54,14 @@
 
     hr {
         border-top: 1px solid gray;
-        width: 90%;
+        width: 100%;
+
     }
 
     section {
         display: flex;
         justify-content: space-between;
-        padding: 30px 90px;
+        padding: 20px 70px;
     }
 
     svg {
