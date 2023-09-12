@@ -1,4 +1,4 @@
-Claro, aquí tienes la corrección del texto con los cambios realizados:
+
 
 # SuperStore 🛒
 
@@ -61,14 +61,13 @@ En el backend, hemos implementado una API completa para administrar productos, i
 A continuación, puedes ver algunas capturas de pantalla que muestran cómo se ve SuperStore tanto en el frontend como en el backend:
 
 ### Frontend
-![Captura de Pantalla del Frontend](url-de-la-imagen-frontend)
+![Captura de Pantalla del Frontend](ImgReadme/frontend.png)
 
 ### Backend
-![Captura de Pantalla del Backend](url-de-la-imagen-backend)
+![Captura de Pantalla del Backend](ImgReadme/backend.png)
 
 ## Próximos Pasos 🚀
 Este proyecto tiene un gran potencial y hay muchas más funcionalidades que se pueden agregar en el futuro. Estoy emocionada por continuar desarrollando SuperStore y explorar nuevas características y mejoras. 🌈🚀💪
 
 ¡Gracias a todos mis compañeros y profesores por su apoyo en este proyecto! 👏👩‍🎓👨‍🎓
 
-Espero que esta corrección sea de tu agrado. Si deseas realizar más ajustes o tienes alguna otra pregunta, no dudes en preguntar.
