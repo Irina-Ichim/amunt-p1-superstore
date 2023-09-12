@@ -1,37 +1,74 @@
-# SuperStore
+Claro, aquí tienes la corrección del texto con los cambios realizados:
 
-A project built with Kotlin, SpringBoot, and Svelte.
+# SuperStore 🛒
 
-## How to start
+¡Bienvenidos a SuperStore! Este proyecto es el resultado de un esfuerzo colaborativo en el que participaron mis compañeros y yo, bajo la guía y el apoyo de nuestros profesores Javi y Gabriela. 👏👩‍🏫👨‍🏫
 
-### Run locally (Frontend+Backend)
+## Descripción 📝
 
-#### Database
-The application requires a postgress database running on port 5432. See `src/main/resources/application.properties` for 
-details.`
+SuperStore es una tienda en línea diseñada para ofrecer una amplia variedad de productos. La aplicación consta de dos partes: el frontend y el backend.
 
-To run this project locally, use the project's Gradle Wrapper:
+- **Frontend**: La parte del frontend está desarrollada utilizando Svelte, HTML, CSS y JavaScript. Contiene funcionalidades esenciales para los clientes, como la visualización de productos, la gestión del carrito de compras y la realización de pedidos. 🌐💼🛍️
 
+- **Backend**: El backend se basa en Spring Boot, Gradle, Kotlin y PostgreSQL. Este componente está destinado a la administración de la tienda. Permite agregar, eliminar y gestionar productos, así como realizar un seguimiento de los pedidos realizados por los clientes. 🚀🔧📦
+
+## Funcionalidades Destacadas 🌟
+
+Una de las funcionalidades más destacadas de este proyecto es la API de productos en el frontend. Aquí hay un ejemplo de código que muestra cómo obtenemos los productos:
+
+```javascript
+import { developmentModeOn } from "./developmentMode.js";
+import { fakeFetch } from "./fakeApi/fakeFetch.js";
+import fakeResponse from '../assets/fakeResponses/get_api_products.json';
+
+export class ProductApi {
+    getAllProducts() {
+        return developmentModeOn ?
+            fakeFetch(fakeResponse) :
+            fetch("/api/products")
+                .then(response => {
+                    if (!response.ok) {
+                        throw an Error("Unable to get products. An error occurred");
+                    }
+                    return response.json();
+                })
+    }
+}
 ```
-./gradlew bootRun
-```
 
-Note this will compile both the API and the Svelte client in a single command.
+## SuperStore API 🚀
 
-### Run frontend only (development mode)
+La SuperStore API proporciona una serie de endpoints que te permiten interactuar con la tienda en línea. Aquí hay una descripción de los métodos disponibles:
 
-From within the `web-client` folder, run the `npm install` command to install dependencies and then `npm run dev`.
-
-## SuperStore API
-
-| Method | Path                         | Description                                      |
+| Método | Ruta                          | Descripción                                      |
 |--------|------------------------------|--------------------------------------------------|
-| GET    | `/api/products`              | Returns all products in the store                |
-| GET    | `/api/customers/{id}`        | Returns customer data (name, shipping info, etc) |
-| POST   | `/api/customers/{id}/orders` | Creates a new order for a customer               |
-| POST   | `/api/orders/{id}/products`  | Adds a product to an existing order              |
-| GET    | `/api/customers/{id}/orders` | Returns all customer's orders                    |
+| GET    | `/api/products`              | Obtiene todos los productos disponibles en la tienda.                |
+| GET    | `/api/customers/{id}`        | Obtiene los datos del cliente (nombre, información de envío, etc). |
+| POST   | `/api/customers/{id}/orders` | Crea un nuevo pedido para un cliente.               |
+| POST   | `/api/orders/{id}/products`  | Agrega un producto a un pedido existente.              |
+| GET    | `/api/customers/{id}/orders` | Obtiene todos los pedidos del cliente.                    |
 
-## References
+Estos endpoints te permitirán interactuar con SuperStore de manera programática. Puedes utilizar una herramienta como Postman o realizar solicitudes HTTP directamente desde tu aplicación para aprovechar estas funciones.
 
-The product data is taken from `https://dummyjson.com/products`
+## Referencias 📚
+
+Los datos de productos se obtienen de `https://dummyjson.com/products`. Esta fuente proporciona datos de ejemplo para poblar la tienda con productos ficticios.
+
+En el backend, hemos implementado una API completa para administrar productos, incluyendo la creación, actualización y eliminación de productos. Además, hemos integrado una base de datos PostgreSQL para almacenar los datos. 💡💻🗃️
+
+## Capturas de Pantalla 📸
+
+A continuación, puedes ver algunas capturas de pantalla que muestran cómo se ve SuperStore tanto en el frontend como en el backend:
+
+### Frontend
+![Captura de Pantalla del Frontend](url-de-la-imagen-frontend)
+
+### Backend
+![Captura de Pantalla del Backend](url-de-la-imagen-backend)
+
+## Próximos Pasos 🚀
+Este proyecto tiene un gran potencial y hay muchas más funcionalidades que se pueden agregar en el futuro. Estoy emocionada por continuar desarrollando SuperStore y explorar nuevas características y mejoras. 🌈🚀💪
+
+¡Gracias a todos mis compañeros y profesores por su apoyo en este proyecto! 👏👩‍🎓👨‍🎓
+
+Espero que esta corrección sea de tu agrado. Si deseas realizar más ajustes o tienes alguna otra pregunta, no dudes en preguntar.
